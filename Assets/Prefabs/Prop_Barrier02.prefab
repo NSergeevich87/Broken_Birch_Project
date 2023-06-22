@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3632568417246923167}
   - component: {fileID: 3947394675895122406}
   - component: {fileID: 5830880811291414222}
+  - component: {fileID: 7703807064378670010}
   m_Layer: 0
   m_Name: Prop_Barrier02
   m_TagString: Obstacle
@@ -128,8 +129,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6874039, y: 1.9200892, z: 3.2984693}
-  m_Center: {x: 0.002707629, y: 0.8975396, z: -0.0220793}
+  m_Size: {x: 0.6559937, y: 1.9200892, z: 3.2984693}
+  m_Center: {x: 0.018412337, y: 0.8975396, z: -0.0220793}
 --- !u!114 &5830880811291414222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,3 +144,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMove: 3
+--- !u!54 &7703807064378670010
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3632568417246700991}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
