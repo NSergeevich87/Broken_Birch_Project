@@ -1,32 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool stopParallaxMove = false;
+
+    private SpawnManager spawnManager;
+
+    public HealthBar healthBar;
     public float maxHealth = 10;
     public float currentHealth;
 
-    public HealthBar healthBar;
-    // Start is called before the first frame update
+    public GameObject bomb;
+
+    public float dps = 1.0f;
     void Start()
     {
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+
+        InvokeRepeating("BombAtack", 0, dps);
+
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+
+        healthBar.SetHealth(currentHealth);
+
+        if (spawnManager.isBossAlive == false)
         {
-            TakeDamage(0.25f);
+            currentHealth = maxHealth;
+            healthBar.SetHealth(currentHealth);
         }
     }
 
-    void TakeDamage(float damage)
+    public void BombAtack()
     {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        if (spawnManager.isAlive || spawnManager.isBossAlive)
+        {
+            Instantiate(bomb, transform.position, transform.rotation);
+            stopParallaxMove = true;
+        }
+        else if (!spawnManager.isAlive || !spawnManager.isBossAlive)
+        {
+            stopParallaxMove = false;
+        }
     }
 }
