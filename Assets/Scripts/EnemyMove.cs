@@ -6,7 +6,7 @@ public class EnemyMove : MonoBehaviour
     private float stopPos;
     void Start()
     {
-        stopPos = 0;
+        stopPos = 2;
     }
     void Update()
     {

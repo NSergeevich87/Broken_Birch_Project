@@ -23,7 +23,7 @@ public class BossAttack : MonoBehaviour
 
     public void PlayerTakeDamage()
     {
-        if(transform.position.x == 0)
+        if(transform.position.x == 2)
         {
             particleBossAttack.Play();
             player.currentHealth -= bossDamage;
