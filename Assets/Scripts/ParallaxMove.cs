@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ParallaxMove : MonoBehaviour
 {
+    private Player player;
+
     private Vector3 startPos;
 
     public float speedMove;
@@ -12,6 +14,7 @@ public class ParallaxMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<Player>();
         startPos = transform.position;
         repeatWidth = GetComponent<BoxCollider>().size.x;
     }
@@ -19,10 +22,14 @@ public class ParallaxMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speedMove * Time.deltaTime, Space.World);
-        if (transform.position.x < startPos.x - repeatWidth)
+        if (player.stopParallaxMove == false)
         {
-            transform.position = startPos;
+            transform.Translate(Vector3.left * speedMove * Time.deltaTime, Space.World);
+
+            if (transform.position.x < startPos.x - repeatWidth)
+            {
+                transform.position = startPos;
+            }
         }
     }
 }
