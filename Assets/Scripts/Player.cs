@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 
     private SpawnManager spawnManager;
 
-    public HealthBar healthBar;
+    public UIHealthBar healthBar;
     public float maxHealth = 10;
     public float currentHealth;
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressBoss : MonoBehaviour
+public class UIProgressBoss : MonoBehaviour
 {
     public Slider slider;
     

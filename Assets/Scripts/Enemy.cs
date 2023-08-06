@@ -7,16 +7,16 @@ public class Enemy : MonoBehaviour
 {
     private SpawnManager spawnManager;
 
-    private ProgressBoss progressBoss;
+    private UIProgressBoss progressBoss;
 
     public float enemyMaxHealth = 10;
     public float enemyCurrentHealth;
 
-    public HealthBar healthBar;
+    public UIHealthBar healthBar;
     void Start()
     {
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-        progressBoss = GameObject.Find("ProgressBar").GetComponent<ProgressBoss>();
+        progressBoss = GameObject.Find("ProgressBar").GetComponent<UIProgressBoss>();
         enemyCurrentHealth = enemyMaxHealth;
         healthBar.SetMaxHealth(enemyMaxHealth);
         healthBar.gameObject.SetActive(true);

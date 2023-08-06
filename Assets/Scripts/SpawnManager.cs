@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    private ProgressBoss progressBoss;
+    private UIProgressBoss progressBoss;
 
     public GameObject[] enemySpawn;
     private int enemyCount;
@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     public bool isBossAlive = false;
     void Start()
     {
-        progressBoss = GameObject.Find("ProgressBar").GetComponent<ProgressBoss>();
+        progressBoss = GameObject.Find("ProgressBar").GetComponent<UIProgressBoss>();
         InvokeRepeating("SpawnEnemy", 0, 4);
     }
 
