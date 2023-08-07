@@ -10,12 +10,12 @@ public class UIMainMenu : MonoBehaviour
     }
     public void ExitGame()
     {
-        SaveManager.Instance.SaveNewData();
+        GameManager.Instance.SaveNewData();
         SceneManager.LoadScene(0);
     }
     public void ExitApplication()
     {
-        SaveManager.Instance.SaveNewData();
+        GameManager.Instance.SaveNewData();
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else

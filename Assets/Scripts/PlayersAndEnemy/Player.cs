@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public bool stopParallaxMove = false;
-
     private SpawnManager spawnManager;
 
     public UIHealthBar healthBar;
@@ -25,8 +23,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        
-
         healthBar.SetHealth(currentHealth);
 
         if (spawnManager.isBossAlive == false)
@@ -41,11 +37,11 @@ public class Player : MonoBehaviour
         if (spawnManager.isAlive || spawnManager.isBossAlive)
         {
             Instantiate(bomb, transform.position, transform.rotation);
-            stopParallaxMove = true;
+            GameManager.Instance.parallaxMove = true;
         }
         else if (!spawnManager.isAlive || !spawnManager.isBossAlive)
         {
-            stopParallaxMove = false;
+            GameManager.Instance.parallaxMove = false;
         }
     }
 }
