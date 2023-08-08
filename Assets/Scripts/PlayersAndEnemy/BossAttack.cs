@@ -7,11 +7,14 @@ public class BossAttack : MonoBehaviour
 
     private Player player;
 
-    public float bossDamageFrequensy = 0.3f;
-    public float bossDamage = 0.1f;
+    public float bossASPD;
+    public float bossATK;
     void Start()
     {
-        InvokeRepeating("PlayerTakeDamage", 0, bossDamageFrequensy);
+        bossASPD = GameManager.Instance.bossASPD;
+        bossATK = GameManager.Instance.bossATK;
+
+        InvokeRepeating("PlayerTakeDamage", 0, bossASPD);
         player = GameObject.Find("Player").GetComponent<Player>();
         particleBossAttack.Pause();
     }
@@ -26,7 +29,7 @@ public class BossAttack : MonoBehaviour
         if(transform.position.x == 2)
         {
             particleBossAttack.Play();
-            player.currentHealth -= bossDamage;
+            player.currentHealth -= bossATK;
         }
     }
 }

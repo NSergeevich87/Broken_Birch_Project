@@ -52,13 +52,13 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.CompareTag("Bomb"))
         {
             Destroy(collision.gameObject);
-            TakeDamage(2f);
+            TakeDamage();
         }
     }
 
-    void TakeDamage(float damage)
+    void TakeDamage()
     {
-        enemyCurrentHealth -= GameManager.Instance.attack;
+        enemyCurrentHealth -= GameManager.Instance.playerATK;
         //enemyCurrentHealth -= damage;
         healthBar.SetHealth(enemyCurrentHealth);
     }

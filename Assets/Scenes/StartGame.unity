@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17741346, g: 0.2221097, b: 0.30433065, a: 1}
+  m_IndirectSpecularColor: {r: 0.17741364, g: 0.22210991, b: 0.30433127, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1643,6 +1643,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b53e564069aa9e4c963715aa0fca0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
+  parallaxMove: 0
+  attack: 0
 --- !u!4 &831133669
 Transform:
   m_ObjectHideFlags: 0
@@ -2974,7 +2977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83862d9aa343a1b4b8a13f8e2c2677f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopParallax: 0
   healthBar: {fileID: 2147203930}
   maxHealth: 10
   currentHealth: 0

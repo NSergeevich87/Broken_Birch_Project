@@ -2,60 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PlayerAbstract
+public abstract class EnemyAbstract
 {
     private string name = "NoName";
-    private float atk;  //Урон от одной атаки 35
-    private float hp;   //Запас здоровья 100
-    private float aspd; //Скорость атаки 0,6
-    private double spd;  //Скорость передвижения
-    private double pow;  //Общая сила 149 (eDPS + eHP)
-    
-    public PlayerAbstract(string name, float atk, float hp, float aspd)
+    private float atk; //damage from attack 25
+    private float hp;  //health points 100
+    private float aspd;//speed of attack 0.5c
+    private float spd; //speed of move 60
+    private int moy; //gold from mobe 40
+
+    public EnemyAbstract(string name, float atk, float hp, float aspd, int moy)
     {
         this.name = name;
         this.atk = atk;
         this.hp = hp;
         this.aspd = aspd;
+        this.moy = moy;
     }
-    public PlayerAbstract(string name, float atk, float hp, float aspd, double spd, double pow)
+    public EnemyAbstract(string name, float atk, float hp, float aspd, float spd, int moy)
     {
         this.name = name;
         this.atk = atk;
         this.hp = hp;
         this.aspd = aspd;
         this.spd = spd;
-        this.pow = pow;
+        this.moy = moy;
     }
-    public string playerName
+
+    public string enemyName
     {
         get { return name; }
         set { name = value; }
     }
-    public float playerATK
+    public float enemyATK
     {
         get { return atk; }
         set { atk = value; }
     }
-    public float playerHP
+    public float enemyHP
     {
         get { return hp; }
         set { hp = value; }
     }
-    public float playerASPD
+    public float enemyASPD
     {
         get { return aspd; }
         set { aspd = value; }
     }
-    public double playerSpeedMove
+    public float enemySPD
     {
         get { return spd; }
         set { spd = value; }
     }
-    public double playerForce
+    public int enemyMOY
     {
-        get { return pow; }
-        set { pow = value; }
+        get { return moy; }
+        set { moy = value; }
     }
 
     public abstract void attack();

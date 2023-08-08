@@ -5,17 +5,20 @@ public class Player : MonoBehaviour
     private SpawnManager spawnManager;
 
     public UIHealthBar healthBar;
-    public double maxHealth = 10;
-    public double currentHealth;
+    public float maxHealth;
+    public float currentHealth;
 
     public GameObject bomb;
 
-    public double dps = 1.0f;
+    public float aspd;
     void Start()
     {
+        maxHealth = GameManager.Instance.playerHP;
+        aspd = GameManager.Instance.playerASPD;
+
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
 
-        InvokeRepeating("BombAtack", 0, dps);
+        InvokeRepeating("BombAtack", 0, aspd);
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);

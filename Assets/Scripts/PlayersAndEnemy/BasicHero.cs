@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class BasicHero : PlayerAbstract
 {
-    
-
-    private string classPlayer = "Magico";
+    private string classPlayer = "magico";
     private double specialATK1 = 100;
     private double specialATK2 = 50;
 
     private string name;
     private float atk;
-    private double hp;
-    private double aspd;
-    public BasicHero(string name, float atk, double hp, double aspd) : base(name, atk, hp, aspd)
+    private float hp;
+    private float aspd;
+    public BasicHero(string name, float atk, float hp, float aspd) : base(name, atk, hp, aspd)
     {
         this.name = name;
         this.atk = atk;
@@ -24,6 +22,7 @@ public class BasicHero : PlayerAbstract
     public string getClass
     {
         get { return classPlayer; }
+        set { classPlayer = value; }
     }
     public double getSpecialATK1
     {
@@ -37,7 +36,8 @@ public class BasicHero : PlayerAbstract
     }
     public override void attack()
     {
-        GameManager.Instance.attack = atk;
+        throw new System.NotImplementedException();
+        //GameManager.Instance.attack = atk;
     }
 
     public override void move()
