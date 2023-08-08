@@ -3,8 +3,8 @@ using UnityEngine;
 public class ParallaxMove : MonoBehaviour
 {
     private Vector3 startPos;
-    public float speedMove;
-    private float repeatWidth;
+    public double speedMove;
+    private double repeatWidth;
     void Start()
     {
         startPos = transform.position;

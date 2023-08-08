@@ -58,7 +58,8 @@ public class Enemy : MonoBehaviour
 
     void TakeDamage(float damage)
     {
-        enemyCurrentHealth -= damage;
+        enemyCurrentHealth -= GameManager.Instance.attack;
+        //enemyCurrentHealth -= damage;
         healthBar.SetHealth(enemyCurrentHealth);
     }
 }

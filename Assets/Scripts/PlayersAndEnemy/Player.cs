@@ -5,12 +5,12 @@ public class Player : MonoBehaviour
     private SpawnManager spawnManager;
 
     public UIHealthBar healthBar;
-    public float maxHealth = 10;
-    public float currentHealth;
+    public double maxHealth = 10;
+    public double currentHealth;
 
     public GameObject bomb;
 
-    public float dps = 1.0f;
+    public double dps = 1.0f;
     void Start()
     {
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();

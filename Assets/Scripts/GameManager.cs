@@ -10,8 +10,14 @@ public class GameManager : MonoBehaviour
     public string playerName;
     public bool parallaxMove;
 
+    public float attack;
+
     private void Awake()
     {
+        //BasicHero hero1 = new BasicHero("Gatito", 35, 100, 0.6);
+        //BasicHero.hero.playerHP -= 10;
+        //Debug.Log(BasicHero.hero.playerHP);
+
         if (Instance != null)
         {
             Destroy(gameObject);
