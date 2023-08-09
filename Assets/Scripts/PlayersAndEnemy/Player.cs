@@ -5,16 +5,19 @@ public class Player : MonoBehaviour
     private SpawnManager spawnManager;
 
     public UIHealthBar healthBar;
-    public float maxHealth;
+    private float maxHealth;
     public float currentHealth;
 
     public GameObject bomb;
 
     public float aspd;
+    public float atk;
     void Start()
     {
-        maxHealth = GameManager.Instance.playerHP;
-        aspd = GameManager.Instance.playerASPD;
+        BasicHero hero = new BasicHero("Gatito", 35, 100, 0.6f);
+        maxHealth = hero.playerHP;
+        aspd = hero.playerASPD;
+        atk = hero.playerATK;
 
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
 

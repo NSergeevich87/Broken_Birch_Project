@@ -6,7 +6,6 @@ public class SpawnManager : MonoBehaviour
     private UIProgressBoss progressBoss;
 
     public GameObject[] enemySpawn;
-    private int enemyCount;
 
     public bool isAlive = false; //есть ли активный враг
     public bool isBossAlive = false;
@@ -19,14 +18,13 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        enemyCount = FindObjectsOfType<Enemy>().Length;
-
-        if (enemyCount == 0 && progressBoss.callBoss == false)
+        if (progressBoss.callBoss == false && isBossAlive == false && isAlive == false)
         {
             StartSpawnEnemy(0);
         }
-        else if (enemyCount == 0 && progressBoss.callBoss == true)
+        else if (progressBoss.callBoss == true)
         {
+            progressBoss.callBoss = false;
             StartSpawnEnemy(1);
         }
     }

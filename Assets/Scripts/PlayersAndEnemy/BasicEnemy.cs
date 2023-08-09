@@ -21,7 +21,8 @@ public class BasicEnemy : EnemyAbstract
 
     public override void attack()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Attack Enemy");
+        //throw new System.NotImplementedException();
     }
 
     public override void move()

@@ -1,26 +1,28 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyBoss : MonoBehaviour
 {
     private Player player;
     private SpawnManager spawnManager;
+    public ParticleSystem particleBossAttack;
     private UIProgressBoss progressBoss;
     public UIHealthBar healthBar;
 
     private float enemyMaxHealth;
     [SerializeField] private float enemyCurrentHealth;
 
-    private float enemyASPD;
-    private float enemyATK;
+    private float bossASPD;
+    private float bossATK;
     void Start()
     {
-        BasicEnemy enemy = new BasicEnemy("cultista simple", 25, 1000, 0.5f, 40);
-        enemyATK = enemy.enemyATK;
-        enemyASPD = enemy.enemyASPD;
-        enemyMaxHealth = enemy.enemyHP;
+        BasicBoss boss = new BasicBoss("cultista mayor", 40, 2000, 0.5f, 250);
+        bossASPD = boss.enemyASPD;
+        bossATK = boss.enemyATK;
+        enemyMaxHealth = boss.enemyHP;
 
         player = GameObject.Find("Player").GetComponent<Player>();
-        InvokeRepeating("PlayerTakeDamage", 0, enemyASPD);
+        InvokeRepeating("PlayerTakeDamage", 0, bossASPD);
+        particleBossAttack.Pause();
 
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         progressBoss = GameObject.Find("ProgressBar").GetComponent<UIProgressBoss>();
@@ -28,19 +30,19 @@ public class Enemy : MonoBehaviour
         healthBar.SetMaxHealth(enemyMaxHealth);
         healthBar.gameObject.SetActive(true);
     }
+
     void Update()
     {
-        if (enemyCurrentHealth <= 0 && spawnManager.isAlive)
+        if (enemyCurrentHealth <= 0 && spawnManager.isBossAlive)
         {
-            spawnManager.isAlive = false;
+            spawnManager.isBossAlive = false;
             Destroy(gameObject);
             deadReterner();
         }
     }
-
     public int deadReterner()
     {
-        return progressBoss.progressBossCount += 1;
+        return progressBoss.progressBossCount = 0;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -57,12 +59,12 @@ public class Enemy : MonoBehaviour
         enemyCurrentHealth -= player.atk;
         healthBar.SetHealth(enemyCurrentHealth);
     }
-
     private void PlayerTakeDamage()
     {
         if (transform.position.x == 2)
         {
-            player.currentHealth -= enemyATK;
+            particleBossAttack.Play();
+            player.currentHealth -= bossATK;
         }
     }
 }

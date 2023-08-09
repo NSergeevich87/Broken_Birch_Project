@@ -298,9 +298,8 @@ GameObject:
   - component: {fileID: 6780291305500563491}
   - component: {fileID: 6780291305500563490}
   - component: {fileID: 6780291305500563489}
-  - component: {fileID: 6780291305500563488}
   - component: {fileID: 6780291305500563519}
-  - component: {fileID: 6992732864180820800}
+  - component: {fileID: -1193178975972766149}
   m_Layer: 0
   m_Name: SimpleEnemyBoss1
   m_TagString: Boss
@@ -390,21 +389,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.3963788, y: 1.3883574, z: 0.2}
   m_Center: {x: -0.08181059, y: -0.197474, z: 0}
---- !u!114 &6780291305500563488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6780291305500563518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ac3eae5b8ce5624683875fd32f0e823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMaxHealth: 30
-  enemyCurrentHealth: 0
-  healthBar: {fileID: 6780291304526041991}
 --- !u!114 &6780291305500563519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4da42b2e1d94d4f901b7b0bec849db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6992732864180820800
+--- !u!114 &-1193178975972766149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -426,12 +410,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6780291305500563518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7ae2490026b5542822fce9902d2c73, type: 3}
+  m_Script: {fileID: 11500000, guid: d9f2301d91905564fa2edec926db669d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particleBossAttack: {fileID: 7156054137467633115}
-  bossDamageFrequensy: 0.3
-  bossDamage: 0.19
+  healthBar: {fileID: 6780291304526041991}
 --- !u!1 &6780291305503470573
 GameObject:
   m_ObjectHideFlags: 0
