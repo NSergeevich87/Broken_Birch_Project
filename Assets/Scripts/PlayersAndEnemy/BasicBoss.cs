@@ -8,6 +8,7 @@ public class BasicBoss : EnemyAbstract
     private float atk;
     private float hp;
     private float aspd;
+    private float spd;
     private int moy;
 
     /*
@@ -21,12 +22,13 @@ public class BasicBoss : EnemyAbstract
     private string tipoItem;
     private float probCaida;
 
-    public BasicBoss(string name, float atk, float hp, float aspd, int moy) : base(name, atk, hp, aspd, moy)
+    public BasicBoss(string name, float atk, float hp, float aspd, float spd, int moy) : base(name, atk, hp, aspd, spd, moy)
     {
         this.classEnemy = name;
         this.atk = atk;
         this.hp = hp;
         this.aspd = aspd;
+        this.spd = spd;
         this.moy = moy;
     }
 
@@ -46,7 +48,7 @@ public class BasicBoss : EnemyAbstract
         set { probCaida = value; }
     }
 
-    public override void attack()
+    /*public override void attack()
     {
         throw new System.NotImplementedException();
     }
@@ -54,5 +56,5 @@ public class BasicBoss : EnemyAbstract
     public override void move()
     {
         throw new System.NotImplementedException();
-    }
+    }*/
 }

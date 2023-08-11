@@ -57,7 +57,7 @@ public abstract class PlayerAbstract
         get { return pow; }
         set { pow = value; }
     }
-
+/*
     public abstract void attack();
-    public abstract void move();
+    public abstract void move();*/
 }

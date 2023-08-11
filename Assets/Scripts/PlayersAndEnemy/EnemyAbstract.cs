@@ -11,14 +11,6 @@ public abstract class EnemyAbstract
     private float spd; //speed of move 60
     private int moy; //gold from mobe 40
 
-    public EnemyAbstract(string name, float atk, float hp, float aspd, int moy)
-    {
-        this.name = name;
-        this.atk = atk;
-        this.hp = hp;
-        this.aspd = aspd;
-        this.moy = moy;
-    }
     public EnemyAbstract(string name, float atk, float hp, float aspd, float spd, int moy)
     {
         this.name = name;
@@ -59,7 +51,7 @@ public abstract class EnemyAbstract
         get { return moy; }
         set { moy = value; }
     }
-
+/*
     public abstract void attack();
-    public abstract void move();
+    public abstract void move();*/
 }

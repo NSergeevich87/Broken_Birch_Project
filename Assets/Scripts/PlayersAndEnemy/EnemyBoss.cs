@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyBoss : MonoBehaviour
@@ -13,12 +14,18 @@ public class EnemyBoss : MonoBehaviour
 
     private float bossASPD;
     private float bossATK;
+    private float bossSPD;
+    private int bossMoy;
+
+    private float distance; //расстояние между игроком и врагом
     void Start()
     {
-        BasicBoss boss = new BasicBoss("cultista mayor", 40, 2000, 0.5f, 250);
+        BasicBoss boss = new BasicBoss("cultista mayor", 40, 2000, 0.5f, 1, 250);
         bossASPD = boss.enemyASPD;
         bossATK = boss.enemyATK;
+        bossSPD = boss.enemySPD;
         enemyMaxHealth = boss.enemyHP;
+        bossMoy = boss.enemyMOY;
 
         player = GameObject.Find("Player").GetComponent<Player>();
         InvokeRepeating("PlayerTakeDamage", 0, bossASPD);
@@ -33,11 +40,21 @@ public class EnemyBoss : MonoBehaviour
 
     void Update()
     {
+        distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+        
         if (enemyCurrentHealth <= 0 && spawnManager.isBossAlive)
         {
+            GameManager.Instance.gold += bossMoy;
+
             spawnManager.isBossAlive = false;
             Destroy(gameObject);
             deadReterner();
+        }
+        if (distance > 3)
+        {
+            var pos = transform.localPosition;
+            pos.x -= bossSPD * Time.deltaTime; //Mathf.MoveTowards(pos.x, -3, Time.deltaTime);
+            transform.localPosition = pos;
         }
     }
     public int deadReterner()
@@ -61,10 +78,18 @@ public class EnemyBoss : MonoBehaviour
     }
     private void PlayerTakeDamage()
     {
-        if (transform.position.x == 2)
+        if (distance > 2.9 && distance < 3.1)
         {
             particleBossAttack.Play();
-            player.currentHealth -= bossATK;
+            if (player.currentHealth > 0)
+            {
+                player.currentHealth -= bossATK;
+            }
+            else
+            {
+                player.currentHealth = 0;
+            }
+
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BasicHero : PlayerAbstract
@@ -34,14 +35,15 @@ public class BasicHero : PlayerAbstract
         get { return specialATK2; }
         set { specialATK2 = value; }
     }
-    public override void attack()
+    /*public override void attack()
     {
+        
+         
         throw new System.NotImplementedException();
-        //GameManager.Instance.attack = atk;
     }
 
     public override void move()
     {
         throw new System.NotImplementedException();
-    }
+    }*/
 }

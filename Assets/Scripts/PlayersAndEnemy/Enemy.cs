@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -8,16 +9,22 @@ public class Enemy : MonoBehaviour
     public UIHealthBar healthBar;
 
     private float enemyMaxHealth;
-    [SerializeField] private float enemyCurrentHealth;
+    public float enemyCurrentHealth;
 
     private float enemyASPD;
     private float enemyATK;
+    private float enemySPD;
+    private int enemyMoy;
+
+    private float distance; //расстояние между игроком и врагом
     void Start()
     {
-        BasicEnemy enemy = new BasicEnemy("cultista simple", 25, 1000, 0.5f, 40);
+        BasicEnemy enemy = new BasicEnemy("cultista simple", 25, 100, 0.5f, 0.9f, 40);
         enemyATK = enemy.enemyATK;
         enemyASPD = enemy.enemyASPD;
         enemyMaxHealth = enemy.enemyHP;
+        enemySPD = enemy.enemySPD;
+        enemyMoy = enemy.enemyMOY;
 
         player = GameObject.Find("Player").GetComponent<Player>();
         InvokeRepeating("PlayerTakeDamage", 0, enemyASPD);
@@ -30,11 +37,21 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
+        distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+        
         if (enemyCurrentHealth <= 0 && spawnManager.isAlive)
         {
+            GameManager.Instance.gold += enemyMoy;
+
             spawnManager.isAlive = false;
             Destroy(gameObject);
             deadReterner();
+        }
+        if (distance > 3)
+        {
+            var pos = transform.localPosition;
+            pos.x -= enemySPD * Time.deltaTime; //Mathf.MoveTowards(pos.x, -3, Time.deltaTime);
+            transform.localPosition = pos;
         }
     }
 
@@ -60,9 +77,17 @@ public class Enemy : MonoBehaviour
 
     private void PlayerTakeDamage()
     {
-        if (transform.position.x == 2)
+        if (distance > 2.9 && distance < 3.1)
         {
-            player.currentHealth -= enemyATK;
+            if (player.currentHealth > 0)
+            {
+                player.currentHealth -= enemyATK;
+            }
+            else
+            {
+                player.currentHealth = 0;
+            }
+
         }
     }
 }

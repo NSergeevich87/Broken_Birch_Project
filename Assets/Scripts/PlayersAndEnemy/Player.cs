@@ -1,25 +1,25 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private SpawnManager spawnManager;
-
     public UIHealthBar healthBar;
     private float maxHealth;
     public float currentHealth;
 
     public GameObject bomb;
 
-    public float aspd;
-    public float atk;
+    private float aspd;
+    public float atk { get; private set; }
+
+    private float distance;
     void Start()
     {
-        BasicHero hero = new BasicHero("Gatito", 35, 100, 0.6f);
-        maxHealth = hero.playerHP;
-        aspd = hero.playerASPD;
-        atk = hero.playerATK;
+        maxHealth = GameManager.Instance.playerHp;
+        aspd = GameManager.Instance.platerAspd;
+        atk = GameManager.Instance.playerAtk;
 
-        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        Debug.Log(atk + " " + maxHealth + " " + aspd);
 
         InvokeRepeating("BombAtack", 0, aspd);
 
@@ -29,25 +29,29 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(maxHealth);
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += (maxHealth * 0.02f) * Time.deltaTime;
+        }
+
         healthBar.SetHealth(currentHealth);
 
-        if (spawnManager.isBossAlive == false)
-        {
-            currentHealth = maxHealth;
-            healthBar.SetHealth(currentHealth);
-        }
+
     }
 
-    public void BombAtack()
+    private void BombAtack()
     {
-        if (spawnManager.isAlive || spawnManager.isBossAlive)
+        GameManager.Instance.parallaxMove = false;
+
+        if (GameObject.FindGameObjectWithTag("Enemy"))
         {
-            Instantiate(bomb, transform.position, transform.rotation);
-            GameManager.Instance.parallaxMove = true;
-        }
-        else if (!spawnManager.isAlive || !spawnManager.isBossAlive)
-        {
-            GameManager.Instance.parallaxMove = false;
+            distance = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Enemy").transform.position);
+            if (distance < 6)
+            {
+                Instantiate(bomb, transform.position, transform.rotation);
+                GameManager.Instance.parallaxMove = true;
+            }
         }
     }
 }
