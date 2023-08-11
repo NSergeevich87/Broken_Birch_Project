@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public float platerAspd;
 
     public int gold;
+    //level progress
+    public int level;
+    public int stage;
     private void Awake()
     {
         BasicHero hero1 = new BasicHero(playerName, 35, 100, 0.6f);
@@ -20,13 +23,28 @@ public class GameManager : MonoBehaviour
 
         Debug.Log(playerAtk + " " + playerHp + " " + platerAspd);
 
+        //RESET ALL
+        /*playerAtk = hero1.playerATK;
+        playerHp = hero1.playerHP;
+        platerAspd = hero1.playerASPD;
+        level = 1;
+        stage = 1;
+        gold = 0;*/
+
         if (playerHp == 0)
         {
             playerAtk = hero1.playerATK;
             playerHp = hero1.playerHP;
             platerAspd = hero1.playerASPD;
         }
-
+        if (level == 0)
+        {
+            level = 1;
+        }
+        if (stage == 0)
+        {
+            stage = 1;
+        }
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -45,6 +63,9 @@ public class GameManager : MonoBehaviour
         public float aspd;
 
         public int gold;
+
+        public int level;
+        public int stage;
     }
     public void SaveNewData()
     {
@@ -54,6 +75,8 @@ public class GameManager : MonoBehaviour
         data.hp = playerHp;
         data.aspd = platerAspd;
         data.gold = gold;
+        data.level = level;
+        data.stage = stage;
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
@@ -69,6 +92,8 @@ public class GameManager : MonoBehaviour
             playerHp = data.hp;
             platerAspd = data.aspd;
             gold = data.gold;
+            level = data.level;
+            stage = data.stage;
         }
     }
 }

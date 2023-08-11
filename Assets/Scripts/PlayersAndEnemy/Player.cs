@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -19,7 +18,7 @@ public class Player : MonoBehaviour
         aspd = GameManager.Instance.platerAspd;
         atk = GameManager.Instance.playerAtk;
 
-        Debug.Log(atk + " " + maxHealth + " " + aspd);
+
 
         InvokeRepeating("BombAtack", 0, aspd);
 
@@ -29,7 +28,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(maxHealth);
+        Debug.Log(atk + " " + maxHealth + " " + aspd);
+
         if (currentHealth < maxHealth)
         {
             currentHealth += (maxHealth * 0.02f) * Time.deltaTime;
@@ -37,7 +37,9 @@ public class Player : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
 
-
+        maxHealth = GameManager.Instance.playerHp;
+        aspd = GameManager.Instance.platerAspd;
+        atk = GameManager.Instance.playerAtk;
     }
 
     private void BombAtack()

@@ -1,27 +1,41 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIProgressBoss : MonoBehaviour
 {
     public Slider slider;
-    
-    public int progressBossCount;
+    public TextMeshProUGUI levelProgressText;
+    private SpawnManager spawnManager;
 
     public bool callBoss = false;
+
+    private int level;
+    private int stage;
     void Start()
     {
-        slider.maxValue = 5;
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+
+        level = GameManager.Instance.level;
+        stage = GameManager.Instance.stage;
+
+        slider.maxValue = 9;
         slider.value = 0;
     }
 
     void Update()
     {
-        if(progressBossCount == 5)
+        Debug.Log(GameManager.Instance.stage);
+
+        levelProgressText.text = $"{GameManager.Instance.level} - {GameManager.Instance.stage}";
+        slider.value = GameManager.Instance.stage - 1;
+
+        if (GameManager.Instance.stage == 9 && spawnManager.isBossAlive == false)
         {
-            progressBossCount = 0;
-            slider.value = 0;
             callBoss = true;
+            spawnManager.isBossAlive = true;
         }
-        slider.value = progressBossCount;
+
+
     }
 }

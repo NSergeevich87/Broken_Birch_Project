@@ -5,9 +5,9 @@ public class Enemy : MonoBehaviour
 {
     private Player player;
     private SpawnManager spawnManager;
-    private UIProgressBoss progressBoss;
-    public UIHealthBar healthBar;
+    //private UIProgressBoss progressBoss;
 
+    public UIHealthBar healthBar;
     private float enemyMaxHealth;
     public float enemyCurrentHealth;
 
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         InvokeRepeating("PlayerTakeDamage", 0, enemyASPD);
 
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-        progressBoss = GameObject.Find("ProgressBar").GetComponent<UIProgressBoss>();
+        //progressBoss = GameObject.Find("ProgressBar").GetComponent<UIProgressBoss>();
         enemyCurrentHealth = enemyMaxHealth;
         healthBar.SetMaxHealth(enemyMaxHealth);
         healthBar.gameObject.SetActive(true);
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
     {
         distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
         
-        if (enemyCurrentHealth <= 0 && spawnManager.isAlive)
+        if (enemyCurrentHealth <= 0)
         {
             GameManager.Instance.gold += enemyMoy;
 
@@ -55,9 +55,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public int deadReterner()
+    public void deadReterner()
     {
-        return progressBoss.progressBossCount += 1;
+        //progressBoss.progressBossCount += 1;
+        GameManager.Instance.stage += 1;
     }
 
     private void OnCollisionEnter(Collision collision)

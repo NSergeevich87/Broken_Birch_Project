@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 
 public class EnemyBoss : MonoBehaviour
@@ -42,9 +43,11 @@ public class EnemyBoss : MonoBehaviour
     {
         distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
         
-        if (enemyCurrentHealth <= 0 && spawnManager.isBossAlive)
+        if (enemyCurrentHealth <= 0)
         {
             GameManager.Instance.gold += bossMoy;
+            GameManager.Instance.level += 1;
+            GameManager.Instance.stage = 1;
 
             spawnManager.isBossAlive = false;
             Destroy(gameObject);
@@ -57,9 +60,9 @@ public class EnemyBoss : MonoBehaviour
             transform.localPosition = pos;
         }
     }
-    public int deadReterner()
+    public void deadReterner()
     {
-        return progressBoss.progressBossCount = 0;
+        GameManager.Instance.stage = 1;
     }
 
     private void OnCollisionEnter(Collision collision)
