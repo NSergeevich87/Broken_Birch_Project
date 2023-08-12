@@ -25,8 +25,6 @@ public class UIProgressBoss : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(GameManager.Instance.stage);
-
         levelProgressText.text = $"{GameManager.Instance.level} - {GameManager.Instance.stage}";
         slider.value = GameManager.Instance.stage - 1;
 
@@ -35,7 +33,5 @@ public class UIProgressBoss : MonoBehaviour
             callBoss = true;
             spawnManager.isBossAlive = true;
         }
-
-
     }
 }

@@ -10,8 +10,6 @@ public class ParallaxMove : MonoBehaviour
         startPos = transform.position;
         repeatWidth = GetComponent<BoxCollider>().size.x;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.Instance.parallaxMove == false)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -17,8 +18,6 @@ public class Player : MonoBehaviour
         maxHealth = GameManager.Instance.playerHp;
         aspd = GameManager.Instance.platerAspd;
         atk = GameManager.Instance.playerAtk;
-
-
 
         InvokeRepeating("BombAtack", 0, aspd);
 
@@ -40,6 +39,12 @@ public class Player : MonoBehaviour
         maxHealth = GameManager.Instance.playerHp;
         aspd = GameManager.Instance.platerAspd;
         atk = GameManager.Instance.playerAtk;
+
+        if (currentHealth <= 0)
+        {
+            GameManager.Instance.stage = 1;
+            SceneManager.LoadScene(1);
+        }
     }
 
     private void BombAtack()

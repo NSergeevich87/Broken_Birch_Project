@@ -18,7 +18,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        if (progressBoss.callBoss == false && isBossAlive == false && isAlive == false)
+        if (GameManager.Instance.stage != 9 && progressBoss.callBoss == false && isBossAlive == false && isAlive == false)
         {
             StartSpawnEnemy(0);
         }

@@ -7,7 +7,6 @@ public class EnemyBoss : MonoBehaviour
     private Player player;
     private SpawnManager spawnManager;
     public ParticleSystem particleBossAttack;
-    private UIProgressBoss progressBoss;
     public UIHealthBar healthBar;
 
     private float enemyMaxHealth;
@@ -33,7 +32,6 @@ public class EnemyBoss : MonoBehaviour
         particleBossAttack.Pause();
 
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-        progressBoss = GameObject.Find("ProgressBar").GetComponent<UIProgressBoss>();
         enemyCurrentHealth = enemyMaxHealth;
         healthBar.SetMaxHealth(enemyMaxHealth);
         healthBar.gameObject.SetActive(true);
@@ -92,7 +90,6 @@ public class EnemyBoss : MonoBehaviour
             {
                 player.currentHealth = 0;
             }
-
         }
     }
 }

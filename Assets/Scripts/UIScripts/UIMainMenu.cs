@@ -4,14 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class UIMainMenu : MonoBehaviour
 {
+    [SerializeField] private int SceneNum;
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneNum);
     }
     public void ExitGame()
     {
         GameManager.Instance.SaveNewData();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneNum);
     }
     public void ExitApplication()
     {

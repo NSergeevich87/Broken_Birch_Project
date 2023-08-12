@@ -42,7 +42,7 @@ public class MainInrarfaceScript : MonoBehaviour
     {
         if (GameManager.Instance.gold >= 100)
         {
-            GameManager.Instance.platerAspd += 0.05f;
+            GameManager.Instance.platerAspd -= 0.05f;
             GameManager.Instance.gold -= 100;
         }
     }
