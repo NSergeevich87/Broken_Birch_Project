@@ -37,8 +37,6 @@ public class BasicHero : PlayerAbstract
     }
     /*public override void attack()
     {
-        
-         
         throw new System.NotImplementedException();
     }
 

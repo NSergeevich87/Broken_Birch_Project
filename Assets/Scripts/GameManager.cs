@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     //Ниже описываем переменные данные которых будем сохранять
     public bool parallaxMove;
+    public bool isBossDead;
 
     private string playerName = "Gatito";
     public float playerAtk;
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
     {
         BasicHero hero1 = new BasicHero(playerName, 35, 100, 0.6f);
         LoadData();
-
+        playerAtk = 350;
         Debug.Log(playerAtk + " " + playerHp + " " + platerAspd);
 
         //RESET ALL

@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             deadReterner();
         }
-        if (distance > 3)
+        if (distance > 1)
         {
             var pos = transform.localPosition;
             pos.x -= enemySPD * Time.deltaTime; //Mathf.MoveTowards(pos.x, -3, Time.deltaTime);

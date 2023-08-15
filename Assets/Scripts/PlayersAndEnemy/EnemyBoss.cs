@@ -48,10 +48,11 @@ public class EnemyBoss : MonoBehaviour
             GameManager.Instance.stage = 1;
 
             spawnManager.isBossAlive = false;
+            GameManager.Instance.isBossDead = true;
             Destroy(gameObject);
             deadReterner();
         }
-        if (distance > 3)
+        if (distance > 1)
         {
             var pos = transform.localPosition;
             pos.x -= bossSPD * Time.deltaTime; //Mathf.MoveTowards(pos.x, -3, Time.deltaTime);

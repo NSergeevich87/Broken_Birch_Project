@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8495568747232707734}
   - component: {fileID: 8495568747232707733}
-  - component: {fileID: 8495568747232707732}
-  - component: {fileID: 4830897719744924955}
   - component: {fileID: -8167918521596468870}
+  - component: {fileID: 7382154363371344312}
+  - component: {fileID: -8936316534448004674}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Bomb
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8495568747232707739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 8e8f6362fcf35de4988369c4e4f111ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -88,7 +88,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!135 &8495568747232707732
+--- !u!114 &-8167918521596468870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8495568747232707739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952fc7bc5e71b9f48b919294758342b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionBomb: {fileID: 2913933536065886144}
+  speedYmin: 7
+  torqueMod: 10
+--- !u!135 &7382154363371344312
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +116,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.705
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &4830897719744924955
+--- !u!54 &-8936316534448004674
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,19 +132,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-8167918521596468870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8495568747232707739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 952fc7bc5e71b9f48b919294758342b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionBomb: {fileID: 2913933536065886144}
 --- !u!1001 &3076098866070575266
 PrefabInstance:
   m_ObjectHideFlags: 0
