@@ -34,7 +34,7 @@ public class MainInrarfaceScript : MonoBehaviour
     {
         if (GameManager.Instance.gold >= 100)
         {
-            GameManager.Instance.playerHp += 5;
+            GameManager.Instance.playerHp += 15;
             GameManager.Instance.gold -= 100;
         }
     }
@@ -42,7 +42,7 @@ public class MainInrarfaceScript : MonoBehaviour
     {
         if (GameManager.Instance.gold >= 100)
         {
-            GameManager.Instance.platerAspd -= 0.05f;
+            GameManager.Instance.platerAspd -= (GameManager.Instance.platerAspd / 100);
             GameManager.Instance.gold -= 100;
         }
     }

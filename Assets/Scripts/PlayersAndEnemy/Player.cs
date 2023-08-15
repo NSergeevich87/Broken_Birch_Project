@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
         if (currentHealth < maxHealth)
         {
-            currentHealth += (maxHealth * 0.02f) * Time.deltaTime;
+            currentHealth += (maxHealth * 0.3f) * Time.deltaTime;
         }
 
         healthBar.SetHealth(currentHealth);
