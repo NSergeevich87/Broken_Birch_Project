@@ -8,7 +8,7 @@ public class UIProgressBoss : MonoBehaviour
     public TextMeshProUGUI levelProgressText;
     private SpawnManager spawnManager;
 
-    public bool callBoss = false;
+    //public bool callBoss = false;
 
     private int level;
     private int stage;
@@ -28,10 +28,10 @@ public class UIProgressBoss : MonoBehaviour
         levelProgressText.text = $"{GameManager.Instance.level} - {GameManager.Instance.stage}";
         slider.value = GameManager.Instance.stage - 1;
 
-        if (GameManager.Instance.stage == 9 && spawnManager.isBossAlive == false)
+        /*if (GameManager.Instance.stage == 9 && GameManager.Instance.isBossDead)
         {
             callBoss = true;
             spawnManager.isBossAlive = true;
-        }
+        }*/
     }
 }

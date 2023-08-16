@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     //Ниже описываем переменные данные которых будем сохранять
     public bool parallaxMove;
-    public bool isBossDead;
+    public bool isBoss = false;
 
     private string playerName = "Gatito";
     public float playerAtk;
@@ -21,16 +21,15 @@ public class GameManager : MonoBehaviour
     {
         BasicHero hero1 = new BasicHero(playerName, 35, 100, 0.6f);
         LoadData();
-        playerAtk = 350;
         Debug.Log(playerAtk + " " + playerHp + " " + platerAspd);
-
+        //playerAtk = 350;
         //RESET ALL
-        /*playerAtk = hero1.playerATK;
+        playerAtk = hero1.playerATK;
         playerHp = hero1.playerHP;
         platerAspd = hero1.playerASPD;
         level = 1;
-        stage = 1;
-        gold = 0;*/
+        stage = 0;
+        gold = 0;
 
         if (playerHp == 0)
         {
@@ -42,10 +41,7 @@ public class GameManager : MonoBehaviour
         {
             level = 1;
         }
-        if (stage == 0)
-        {
-            stage = 1;
-        }
+
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -53,7 +49,6 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        //LoadData();
     }
     [System.Serializable]
     class SaveData

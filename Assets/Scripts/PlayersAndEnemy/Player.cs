@@ -51,7 +51,8 @@ public class Player : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            GameManager.Instance.stage = 1;
+            GameManager.Instance.stage = 0;
+            GameManager.Instance.isBoss = false;
             SceneManager.LoadScene(1);
         }
 

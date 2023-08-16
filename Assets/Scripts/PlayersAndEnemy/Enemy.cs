@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -36,16 +35,19 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
-        
+
         if (enemyCurrentHealth <= 0)
         {
+            Destroy(gameObject);
             GameManager.Instance.gold += enemyMoy;
 
-            spawnManager.isAlive = false;
-            Destroy(gameObject);
-            deadReterner();
+            /*if (!GameObject.FindGameObjectWithTag("Enemy"))
+            {
+                deadReterner();
+                spawnManager.isAlive = false;
+            }*/
         }
-        if (distance > 1)
+        if (distance > 1.5f)
         {
             var pos = transform.localPosition;
             pos.x -= enemySPD * Time.deltaTime; //Mathf.MoveTowards(pos.x, -3, Time.deltaTime);
@@ -53,10 +55,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void deadReterner()
+    /*public void deadReterner()
     {
         GameManager.Instance.stage += 1;
-    }
+    }*/
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -75,7 +77,8 @@ public class Enemy : MonoBehaviour
 
     private void PlayerTakeDamage()
     {
-        if (distance > 2.9 && distance < 3.1)
+        //Debug.Log(distance);
+        if (distance > 0 && distance < 1.6)
         {
             if (player.currentHealth > 0)
             {
