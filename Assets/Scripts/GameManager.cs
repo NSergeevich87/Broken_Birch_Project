@@ -24,12 +24,12 @@ public class GameManager : MonoBehaviour
         Debug.Log(playerAtk + " " + playerHp + " " + platerAspd);
         //playerAtk = 350;
         //RESET ALL
-        playerAtk = hero1.playerATK;
+        /*playerAtk = hero1.playerATK;
         playerHp = hero1.playerHP;
         platerAspd = hero1.playerASPD;
         level = 1;
         stage = 0;
-        gold = 0;
+        gold = 0;*/
 
         if (playerHp == 0)
         {
