@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         maxHealth = GameManager.Instance.playerHp;
-        aspd = GameManager.Instance.platerAspd;
+        aspd = GameManager.Instance.playerAspd;
         atk = GameManager.Instance.playerAtk;
 
         currentHealth = maxHealth;
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
         maxHealth = GameManager.Instance.playerHp;
-        aspd = GameManager.Instance.platerAspd;
+        aspd = GameManager.Instance.playerAspd;
         atk = GameManager.Instance.playerAtk;
 
         if (currentHealth <= 0)

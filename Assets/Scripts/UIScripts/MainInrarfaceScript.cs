@@ -24,26 +24,26 @@ public class MainInrarfaceScript : MonoBehaviour
     }
     public void addAtk()
     {
-        if (GameManager.Instance.gold >= 100)
+        /*if (GameManager.Instance.gold >= 100)
         {
             GameManager.Instance.playerAtk += 5;
             GameManager.Instance.gold -= 100;
-        }
+        }*/
     }
     public void addHp()
     {
-        if (GameManager.Instance.gold >= 100)
+        /*if (GameManager.Instance.gold >= 100)
         {
             GameManager.Instance.playerHp += 15;
             GameManager.Instance.gold -= 100;
-        }
+        }*/
     }
     public void addAspd()
     {
-        if (GameManager.Instance.gold >= 100)
+        /*if (GameManager.Instance.gold >= 100)
         {
-            GameManager.Instance.platerAspd -= (GameManager.Instance.platerAspd / 100);
+            GameManager.Instance.playerAspd -= (GameManager.Instance.playerAspd / 100);
             GameManager.Instance.gold -= 100;
-        }
+        }*/
     }
 }
