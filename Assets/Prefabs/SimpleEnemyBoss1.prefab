@@ -297,8 +297,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6780291305500563491}
   - component: {fileID: 6780291305500563490}
-  - component: {fileID: 6780291305500563489}
   - component: {fileID: -1193178975972766149}
+  - component: {fileID: 4019710717095713118}
   m_Layer: 0
   m_Name: SimpleEnemyBoss1
   m_TagString: Enemy
@@ -375,19 +375,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &6780291305500563489
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6780291305500563518}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: -0.08181059, y: -0.197474, z: 0}
 --- !u!114 &-1193178975972766149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +390,32 @@ MonoBehaviour:
   particleBossAttack: {fileID: 7156054137467633115}
   healthBar: {fileID: 6780291304526041991}
   enemyCurrentHealth: 0
+--- !u!61 &4019710717095713118
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6780291305500563518}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 1.93}
+    newSize: {x: 2.56, y: 1.93}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &6780291305503470573
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,15 +606,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5133354829398919480, guid: fa91474e37bc6554c92dc81905d3e3de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.68
+      value: -1.528
       objectReference: {fileID: 0}
     - target: {fileID: 5133354829398919480, guid: fa91474e37bc6554c92dc81905d3e3de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.142
+      value: -0.291
       objectReference: {fileID: 0}
     - target: {fileID: 5133354829398919480, guid: fa91474e37bc6554c92dc81905d3e3de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.192
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5133354829398919480, guid: fa91474e37bc6554c92dc81905d3e3de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -634,6 +647,10 @@ PrefabInstance:
     - target: {fileID: 5133354829398955288, guid: fa91474e37bc6554c92dc81905d3e3de, type: 3}
       propertyPath: m_Name
       value: ParticleAttackBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 5133354829417182680, guid: fa91474e37bc6554c92dc81905d3e3de, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5133354829417270392, guid: fa91474e37bc6554c92dc81905d3e3de, type: 3}
       propertyPath: looping

@@ -22,7 +22,7 @@ public class MainInrarfaceScript : MonoBehaviour
         powText.text = "POW: " + Math.Round((GameManager.Instance.playerAtk * (1 / GameManager.Instance.playerAspd)) + GameManager.Instance.playerHp, 2);
         attackText.text = "ATK: " + Math.Round(GameManager.Instance.playerAtk, 1);
         hpText.text = "HP: " + Math.Round(GameManager.Instance.playerHp, 1);
-        attackSpeedText.text = "ASPD: " + Math.Round(GameManager.Instance.playerAspd, 2);
+        attackSpeedText.text = "ASPD: " + Math.Round((1 / GameManager.Instance.playerAspd), 2);
     }
     private void Update()
     {
@@ -31,7 +31,7 @@ public class MainInrarfaceScript : MonoBehaviour
         powText.text = "POW: " + Math.Round((GameManager.Instance.playerAtk * (1 / GameManager.Instance.playerAspd)) + GameManager.Instance.playerHp, 2);
         attackText.text = "ATK: " + Math.Round(GameManager.Instance.playerAtk, 1);
         hpText.text = "HP: " + Math.Round(GameManager.Instance.playerHp, 1);
-        attackSpeedText.text = "ASPD: " + Math.Round(GameManager.Instance.playerAspd, 2);
+        attackSpeedText.text = "ASPD: " + Math.Round((1 / GameManager.Instance.playerAspd), 2);
     }
     public void BackToMainMenu()
     {

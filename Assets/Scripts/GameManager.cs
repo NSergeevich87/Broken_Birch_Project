@@ -19,32 +19,6 @@ public class GameManager : MonoBehaviour
     public int stage;
     private void Awake()
     {
-<<<<<<< HEAD
-        BasicHero hero1 = new BasicHero(playerName, 35, 100, 0.6f);
-        LoadData();
-        Debug.Log(playerAtk + " " + playerHp + " " + platerAspd);
-        //playerAtk = 350;
-        //RESET ALL
-        /*playerAtk = hero1.playerATK;
-        playerHp = hero1.playerHP;
-        platerAspd = hero1.playerASPD;
-        level = 1;
-        stage = 0;
-        gold = 0;*/
-
-        if (playerHp == 0)
-        {
-            playerAtk = hero1.playerATK;
-            playerHp = hero1.playerHP;
-            platerAspd = hero1.playerASPD;
-        }
-        if (level == 0)
-        {
-            level = 1;
-        }
-
-=======
->>>>>>> main
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -60,7 +34,7 @@ public class GameManager : MonoBehaviour
         //RESET ALL
         /*playerAtk = hero1.playerATK;
         playerHp = hero1.playerHP;
-        platerAspd = hero1.playerASPD;
+        playerAspd = hero1.playerASPD;
         level = 1;
         stage = 0;
         gold = 0;*/

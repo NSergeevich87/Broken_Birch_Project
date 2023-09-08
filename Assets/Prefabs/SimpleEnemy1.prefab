@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7018560768921102193}
   - component: {fileID: 38549134319290229}
-  - component: {fileID: 1679351003391991328}
   - component: {fileID: 5552404508534114048}
+  - component: {fileID: 5966071510498580170}
   m_Layer: 0
   m_Name: SimpleEnemy1
   m_TagString: Enemy
@@ -87,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &1679351003391991328
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4507129923275199077}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0.010624558, y: -0.087652326, z: 0}
 --- !u!114 &5552404508534114048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +101,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 56079933892668446}
   enemyCurrentHealth: 0
+--- !u!61 &5966071510498580170
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4507129923275199077}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.23, y: 3.47}
+    newSize: {x: 3.23, y: 3.47}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &4784314867636298567
 GameObject:
   m_ObjectHideFlags: 0

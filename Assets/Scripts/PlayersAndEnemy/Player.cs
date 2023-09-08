@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         aspd = GameManager.Instance.playerAspd;
         atk = GameManager.Instance.playerAtk;
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 1)
         {
             GameManager.Instance.stage = 0;
             GameManager.Instance.isBoss = false;

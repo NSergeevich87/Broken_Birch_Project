@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
         GameManager.Instance.stage += 1;
     }*/
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bomb"))
         {
@@ -68,6 +68,14 @@ public class Enemy : MonoBehaviour
             TakeDamage();
         }
     }
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Bomb"))
+        {
+            Destroy(collision.gameObject);
+            TakeDamage();
+        }
+    }*/
 
     void TakeDamage()
     {
