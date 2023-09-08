@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private string playerName = "Gatito";
     public float playerAtk;
     public float playerHp;
-    public float platerAspd;
+    public float playerAspd;
 
     public int gold;
     //level progress
@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public int stage;
     private void Awake()
     {
+<<<<<<< HEAD
         BasicHero hero1 = new BasicHero(playerName, 35, 100, 0.6f);
         LoadData();
         Debug.Log(playerAtk + " " + playerHp + " " + platerAspd);
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour
             level = 1;
         }
 
+=======
+>>>>>>> main
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -49,6 +52,29 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        BasicHero hero1 = new BasicHero(playerName, 35, 100, 0.6f);
+        LoadData();
+        Debug.Log(playerAtk + " " + playerHp + " " + playerAspd);
+        //playerAtk = 350;
+        //RESET ALL
+        /*playerAtk = hero1.playerATK;
+        playerHp = hero1.playerHP;
+        platerAspd = hero1.playerASPD;
+        level = 1;
+        stage = 0;
+        gold = 0;*/
+
+        if (playerHp == 0)
+        {
+            playerAtk = hero1.playerATK;
+            playerHp = hero1.playerHP;
+            playerAspd = hero1.playerASPD;
+        }
+        if (level == 0)
+        {
+            level = 1;
+        }
     }
     [System.Serializable]
     class SaveData
@@ -69,7 +95,7 @@ public class GameManager : MonoBehaviour
         data.name = playerName;
         data.atk = playerAtk;
         data.hp = playerHp;
-        data.aspd = platerAspd;
+        data.aspd = playerAspd;
         data.gold = gold;
         data.level = level;
         data.stage = stage;
@@ -86,7 +112,7 @@ public class GameManager : MonoBehaviour
             name = data.name;
             playerAtk = data.atk;
             playerHp = data.hp;
-            platerAspd = data.aspd;
+            playerAspd = data.aspd;
             gold = data.gold;
             level = data.level;
             stage = data.stage;
