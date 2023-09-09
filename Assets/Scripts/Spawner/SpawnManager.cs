@@ -51,13 +51,16 @@ public class SpawnManager : MonoBehaviour
 
     void StartSpawnEnemy(int enemy)
     {
+        float[] linesSpawn = new[] { 2.2f, 2.7f, 3.2f, 3.7f, 4.2f, 4.7f, 5.2f};
+
         int spawnCount = Random.Range(1, 5);
 
         if (enemy == 0)
         {
             for (int i = 0; i < spawnCount; i++)
             {
-                Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), Random.Range(2.75f, 4.75f), transform.position.z);
+                float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+                Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
                 Instantiate(enemySpawn[enemy], spawnPlace, enemySpawn[enemy].transform.rotation);
                 //isAlive = true;
             }

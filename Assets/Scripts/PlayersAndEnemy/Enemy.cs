@@ -14,7 +14,11 @@ public class Enemy : MonoBehaviour
     private float enemySPD;
     private int enemyMoy;
 
+    private float spawnDistance; //расстояние между спауном и врагом
     private float distance; //расстояние между игроком и врагом
+    private float linePos; //на какой линии появился враг
+    private Vector3 target;
+
     void Start()
     {
         BasicEnemy enemy = new BasicEnemy("cultista simple", 25, 100, 0.5f, 0.9f, 40);
@@ -24,19 +28,499 @@ public class Enemy : MonoBehaviour
         enemySPD = enemy.enemySPD;
         enemyMoy = enemy.enemyMOY;
 
-        player = GameObject.Find("Player").GetComponent<Player>();
+        linePos = transform.position.y;
+
+
+        //player = GameObject.Find("Player").GetComponent<Player>();
         InvokeRepeating("PlayerTakeDamage", 0, enemyASPD);
 
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        spawnDistance = Vector3.Distance(spawnManager.transform.position, transform.position);
         enemyCurrentHealth = enemyMaxHealth;
         healthBar.SetMaxHealth(enemyMaxHealth);
         healthBar.gameObject.SetActive(true);
     }
     void Update()
     {
-        distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+        //linePos = transform.position.y;
+        spawnDistance = Vector3.Distance(spawnManager.transform.position, transform.position);
 
-        if (enemyCurrentHealth <= 0)
+        switch (linePos) //2.2f, 2.7f, 3.2f, 3.7f, 4.2f, 4.7f, 5.2
+        {
+            case 5.2f:
+                if (GameObject.Find("Player3"))
+                {
+                    player = GameObject.Find("Player3").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player"))
+                {
+                    player = GameObject.Find("Player").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player4"))
+                {
+                    player = GameObject.Find("Player4").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player2"))
+                {
+                    player = GameObject.Find("Player2").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                break;
+            case 4.7f:
+                if (GameObject.Find("Player3"))
+                {
+                    player = GameObject.Find("Player3").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player"))
+                {
+                    player = GameObject.Find("Player").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player4"))
+                {
+                    player = GameObject.Find("Player4").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player2"))
+                {
+                    player = GameObject.Find("Player2").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                break;
+            case 4.2f:
+                if (GameObject.Find("Player"))
+                {
+                    player = GameObject.Find("Player").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player3"))
+                {
+                    player = GameObject.Find("Player3").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player2"))
+                {
+                    player = GameObject.Find("Player2").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player4"))
+                {
+                    player = GameObject.Find("Player4").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                break;
+            case 3.7f:
+                if (GameObject.Find("Player"))
+                {
+                    player = GameObject.Find("Player").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player2"))
+                {
+                    player = GameObject.Find("Player2").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player3"))
+                {
+                    player = GameObject.Find("Player3").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player4"))
+                {
+                    player = GameObject.Find("Player4").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                break;
+            case 3.2f:
+                if (GameObject.Find("Player"))
+                {
+                    player = GameObject.Find("Player").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player2"))
+                {
+                    player = GameObject.Find("Player2").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player3"))
+                {
+                    player = GameObject.Find("Player3").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player4"))
+                {
+                    player = GameObject.Find("Player4").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                break;
+            case 2.7f:
+                if (GameObject.Find("Player2"))
+                {
+                    player = GameObject.Find("Player2").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player"))
+                {
+                    player = GameObject.Find("Player").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player4"))
+                {
+                    player = GameObject.Find("Player4").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player3"))
+                {
+                    player = GameObject.Find("Player3").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                break;
+            case 2.2f:
+                if (GameObject.Find("Player2"))
+                {
+                    player = GameObject.Find("Player2").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player"))
+                {
+                    player = GameObject.Find("Player").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player4"))
+                {
+                    player = GameObject.Find("Player4").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                else if (GameObject.Find("Player3"))
+                {
+                    player = GameObject.Find("Player3").GetComponent<Player>();
+                    distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
+                    if (distance >= 1f && spawnDistance > 8)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+                    else if (distance >= 1.5f)
+                    {
+                        target = transform.localPosition;
+                        target.x -= enemySPD * Time.deltaTime;
+                        transform.localPosition = target;
+                    }
+                }
+                break;
+                
+            /*default:
+                if (Vector3.Distance(player.transform.position, transform.position) > 1f)
+                {
+                    target = player.transform.position - transform.position;
+                    transform.position += target.normalized * Time.deltaTime * enemySPD;
+                }
+
+                break;*/
+        }
+
+        if (enemyCurrentHealth <= 0 || spawnDistance > 20)
         {
             Destroy(gameObject);
             GameManager.Instance.gold += enemyMoy;
@@ -47,12 +531,7 @@ public class Enemy : MonoBehaviour
                 spawnManager.isAlive = false;
             }*/
         }
-        if (distance > 1.5f)
-        {
-            var pos = transform.localPosition;
-            pos.x -= enemySPD * Time.deltaTime; //Mathf.MoveTowards(pos.x, -3, Time.deltaTime);
-            transform.localPosition = pos;
-        }
+
     }
 
     /*public void deadReterner()
@@ -79,8 +558,12 @@ public class Enemy : MonoBehaviour
 
     void TakeDamage()
     {
-        enemyCurrentHealth -= player.atk;
-        healthBar.SetHealth(enemyCurrentHealth);
+        if (player != null)
+        {
+            enemyCurrentHealth -= player.atk;
+            healthBar.SetHealth(enemyCurrentHealth);
+        }
+
     }
 
     private void PlayerTakeDamage()
