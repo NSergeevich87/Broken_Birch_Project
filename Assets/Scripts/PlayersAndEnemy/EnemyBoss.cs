@@ -41,6 +41,8 @@ public class EnemyBoss : MonoBehaviour
 
         if (enemyCurrentHealth <= 0)
         {
+            GameManager.Instance.PlayClip();
+
             Destroy(gameObject);
             GameManager.Instance.gold += bossMoy;
             GameManager.Instance.level += 1;

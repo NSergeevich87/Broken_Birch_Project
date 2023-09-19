@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private AudioSource audioClips;
+    public AudioClip clipCoins;
     public static GameManager Instance { get; private set; }
     //Ниже описываем переменные данные которых будем сохранять
     public bool parallaxMove;
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
     public int stage;
     private void Awake()
     {
+        audioClips = GetComponent<AudioSource>();
+
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -91,5 +95,10 @@ public class GameManager : MonoBehaviour
             level = data.level;
             stage = data.stage;
         }
+    }
+
+    public void PlayClip()
+    {
+        audioClips.PlayOneShot(clipCoins, 1.0f);
     }
 }

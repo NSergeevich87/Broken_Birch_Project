@@ -7,6 +7,9 @@ using System;
 
 public class MainInrarfaceScript : MonoBehaviour
 {
+    private AudioSource audioClips;
+    public AudioClip clickClip;
+
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI hpText;
@@ -16,6 +19,8 @@ public class MainInrarfaceScript : MonoBehaviour
     
     private void Awake()
     {
+        audioClips = GetComponent<AudioSource>();
+
         gold = GameManager.Instance.gold;
         goldText.text = gold.ToString();
 
@@ -35,11 +40,13 @@ public class MainInrarfaceScript : MonoBehaviour
     }
     public void BackToMainMenu()
     {
+        audioClips.PlayOneShot(clickClip, 1.0f);
         GameManager.Instance.SaveNewData();
         SceneManager.LoadScene(0);
     }
     public void addAtk()
     {
+        audioClips.PlayOneShot(clickClip, 1.0f);
         if (GameManager.Instance.gold >= 100)
         {
             GameManager.Instance.playerAtk += 5;
@@ -48,6 +55,7 @@ public class MainInrarfaceScript : MonoBehaviour
     }
     public void addHp()
     {
+        audioClips.PlayOneShot(clickClip, 1.0f);
         if (GameManager.Instance.gold >= 100)
         {
             GameManager.Instance.playerHp += 15;
@@ -56,10 +64,15 @@ public class MainInrarfaceScript : MonoBehaviour
     }
     public void addAspd()
     {
+        audioClips.PlayOneShot(clickClip, 1.0f);
         if (GameManager.Instance.gold >= 100)
         {
             GameManager.Instance.playerAspd -= (GameManager.Instance.playerAspd / 100);
             GameManager.Instance.gold -= 100;
         }
+    }
+    public void PlaySound()
+    {
+        audioClips.PlayOneShot(clickClip, 1.0f);
     }
 }

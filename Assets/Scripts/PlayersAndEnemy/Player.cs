@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    private AudioSource audioClips;
+    public AudioClip magicSpell;
+
     public UIHealthBar healthBar;
     private float maxHealth;
     public float currentHealth;
@@ -18,6 +21,8 @@ public class Player : MonoBehaviour
     private float timeElapsed = 0f;
     void Start()
     {
+        audioClips = GetComponent<AudioSource>();
+
         maxHealth = GameManager.Instance.playerHp;
         aspd = GameManager.Instance.playerAspd;
         atk = GameManager.Instance.playerAtk;
@@ -89,6 +94,7 @@ public class Player : MonoBehaviour
     }
     private void BombAtack()
     {
+        audioClips.PlayOneShot(magicSpell, 1.0f);
         Instantiate(bomb, transform.position, bomb.transform.rotation);
     }
 }

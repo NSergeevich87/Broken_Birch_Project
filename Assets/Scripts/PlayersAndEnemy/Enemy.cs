@@ -509,22 +509,23 @@ public class Enemy : MonoBehaviour
                     }
                 }
                 break;
-                
-            /*default:
-                if (Vector3.Distance(player.transform.position, transform.position) > 1f)
-                {
-                    target = player.transform.position - transform.position;
-                    transform.position += target.normalized * Time.deltaTime * enemySPD;
-                }
 
-                break;*/
+                /*default:
+                    if (Vector3.Distance(player.transform.position, transform.position) > 1f)
+                    {
+                        target = player.transform.position - transform.position;
+                        transform.position += target.normalized * Time.deltaTime * enemySPD;
+                    }
+
+                    break;*/
         }
 
         if (enemyCurrentHealth <= 0 || spawnDistance > 20)
         {
-            Destroy(gameObject);
-            GameManager.Instance.gold += enemyMoy;
+            GameManager.Instance.PlayClip();
 
+            GameManager.Instance.gold += enemyMoy;
+            Destroy(gameObject);
             /*if (!GameObject.FindGameObjectWithTag("Enemy"))
             {
                 deadReterner();
