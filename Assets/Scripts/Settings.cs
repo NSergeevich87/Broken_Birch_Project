@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
+using TMPro;
 
 public class Settings : MonoBehaviour
 {
-    public Dropdown resolutionDropdown;
+    public TMP_Dropdown resolutionDropdown;
+    //public Dropdown resolutionDropdown;
 
     Resolution[] resolutions;
     void Start()

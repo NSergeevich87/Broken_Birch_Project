@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     //public InputField inputHealth;
-    public TMP_InputField setHealth;
+    /*public TMP_InputField setHealth;
     public TMP_InputField setAtk;
     public TMP_InputField setAtkSpeed;
-    public TMP_InputField setStartGold;
+    public TMP_InputField setStartGold;*/
 
     private AudioSource audioClips;
     public AudioClip clipCoins;
-    public static GameManager Instance { get; private set; }
+    public static GameManager Instance { get; set; }
     //Ниже описываем переменные данные которых будем сохранять
     public bool parallaxMove;
     public bool isBoss = false;
@@ -71,14 +71,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        string inputHealth = setHealth.text;
+        /*string inputHealth = setHealth.text;
         playerHp = float.Parse(inputHealth);
         string inputAtk = setAtk.text;
         playerAtk = float.Parse(inputAtk);
         string inputSpeedAtk = setAtkSpeed.text;
         playerAspd = float.Parse(inputSpeedAtk);
         string inputGoldStart = setStartGold.text;
-        gold = int.Parse(inputGoldStart);
+        gold = int.Parse(inputGoldStart);*/
     }
 
     [System.Serializable]
