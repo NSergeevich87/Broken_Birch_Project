@@ -5220,6 +5220,7 @@ GameObject:
   - component: {fileID: 742832661}
   - component: {fileID: 742832660}
   - component: {fileID: 742832659}
+  - component: {fileID: 742832662}
   m_Layer: 5
   m_Name: BackMainMenu
   m_TagString: Untagged
@@ -5291,10 +5292,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 16339034}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1016244549}
+        m_TargetAssemblyTypeName: UIMainMenu, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5353,6 +5354,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742832657}
   m_CullTransparentMesh: 1
+--- !u!114 &742832662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742832657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce441f2d31dcd504d8e48bc0b8c9ca6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNum: 0
+  clickClip: {fileID: 0}
 --- !u!1 &755383849
 GameObject:
   m_ObjectHideFlags: 0
@@ -5860,6 +5875,11 @@ MonoBehaviour:
   gold: 0
   level: 0
   stage: 0
+  enemyMaxHealth: 0
+  enemyATK: 0
+  enemyASPD: 0
+  enemySPD: 0
+  enemyMoy: 0
 --- !u!4 &831133669
 Transform:
   m_ObjectHideFlags: 0
@@ -6779,6 +6799,7 @@ GameObject:
   - component: {fileID: 1016244545}
   - component: {fileID: 1016244544}
   - component: {fileID: 1016244543}
+  - component: {fileID: 1016244549}
   m_Layer: 5
   m_Name: Interface
   m_TagString: Untagged
@@ -6999,6 +7020,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1016244549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016244542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce441f2d31dcd504d8e48bc0b8c9ca6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNum: 0
+  clickClip: {fileID: 8300000, guid: 9dcf3d9ca23976c4786256fd51073bfe, type: 3}
 --- !u!1 &1031318461
 GameObject:
   m_ObjectHideFlags: 3
@@ -10446,10 +10481,10 @@ RectTransform:
   - {fileID: 1901171039}
   m_Father: {fileID: 1016244548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -467}
-  m_SizeDelta: {x: 0, y: -1375.9501}
+  m_SizeDelta: {x: 1080, y: 544.0499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1861568358
 MonoBehaviour:

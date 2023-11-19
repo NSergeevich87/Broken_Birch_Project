@@ -21,12 +21,20 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        BasicEnemy enemy = new BasicEnemy("cultista simple", 25, 100, 0.5f, 0.9f, 40);
-        enemyATK = enemy.enemyATK;
-        enemyASPD = enemy.enemyASPD;
-        enemyMaxHealth = enemy.enemyHP;
-        enemySPD = enemy.enemySPD;
-        enemyMoy = enemy.enemyMOY;
+        //BasicEnemy enemy = new BasicEnemy("cultista simple", 25, 100, 0.5f, 0.9f, 40);
+        //BasicEnemy enemy = new BasicEnemy();
+        //enemyATK = enemy.enemyATK;
+        //enemyASPD = enemy.enemyASPD;
+        //enemyMaxHealth = enemy.enemyHP;
+        //enemySPD = enemy.enemySPD;
+        //enemyMoy = enemy.enemyMOY;
+
+        enemyMaxHealth = GameManager.Instance.enemyMaxHealth;
+        enemyATK = GameManager.Instance.enemyATK;
+        enemyASPD = GameManager.Instance.enemyASPD;
+        enemySPD = GameManager.Instance.enemySPD;
+        enemyMoy = GameManager.Instance.enemyMoy;
+
 
         linePos = transform.position.y;
 

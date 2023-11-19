@@ -11,7 +11,8 @@ public class BasicEnemy : EnemyAbstract
     private float spd;
     private int moy;
 
-    public BasicEnemy(string name, float atk, float hp, float aspd, float spd, int moy) : base(name, atk, hp, aspd, spd, moy)
+    public BasicEnemy(string name = "BaseName", float atk = 25, float hp = 100, float aspd = 0.5f, float spd = 0.9f, int moy = 40) 
+        : base(name, atk, hp, aspd, spd, moy)//base(name = "BaseName", atk = 25, hp = 100, aspd = 0.5f, spd = 0.9f, moy = 40)
     {
         this.classEnemy = name;
         this.atk = atk;

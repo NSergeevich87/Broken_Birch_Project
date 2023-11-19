@@ -6,12 +6,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //public InputField inputHealth;
-    /*public TMP_InputField setHealth;
-    public TMP_InputField setAtk;
-    public TMP_InputField setAtkSpeed;
-    public TMP_InputField setStartGold;*/
-
     private AudioSource audioClips;
     public AudioClip clipCoins;
     public static GameManager Instance { get; set; }
@@ -28,11 +22,15 @@ public class GameManager : MonoBehaviour
     //level progress
     public int level;
     public int stage;
+    //Enemy variables
+    public float enemyMaxHealth;
+    public float enemyATK;
+    public float enemyASPD;
+    public float enemySPD;
+    public int enemyMoy;
+        
     private void Awake()
     {
-        //string inputHealth = setHealth.text;
-        //playerHp = float.Parse(setHealth.text);
-
         audioClips = GetComponent<AudioSource>();
 
         if (Instance != null)
@@ -45,17 +43,7 @@ public class GameManager : MonoBehaviour
 
         BasicHero hero1 = new BasicHero(playerName, 35, 100, 0.6f);
         LoadData();
-        Debug.Log(playerAtk + " " + playerHp + " " + playerAspd);
-        //playerAtk = 350;
-        //RESET ALL
-        /*playerAtk = hero1.playerATK;
-        playerHp = hero1.playerHP;
-        playerAspd = hero1.playerASPD;
-        level = 1;
-        stage = 0;
-        gold = 0;*/
-
-        
+        //Debug.Log(playerAtk + " " + playerHp + " " + playerAspd);
 
         if (playerHp == 0)
         {
@@ -67,18 +55,6 @@ public class GameManager : MonoBehaviour
         {
             level = 1;
         }
-    }
-
-    void Update()
-    {
-        /*string inputHealth = setHealth.text;
-        playerHp = float.Parse(inputHealth);
-        string inputAtk = setAtk.text;
-        playerAtk = float.Parse(inputAtk);
-        string inputSpeedAtk = setAtkSpeed.text;
-        playerAspd = float.Parse(inputSpeedAtk);
-        string inputGoldStart = setStartGold.text;
-        gold = int.Parse(inputGoldStart);*/
     }
 
     [System.Serializable]
