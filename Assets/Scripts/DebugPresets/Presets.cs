@@ -18,6 +18,13 @@ public class Presets : MonoBehaviour
     public TMP_InputField setEnemyMoveSpeed;
     public TMP_InputField setEnemyDropGold;
 
+    // Enemy Boss presets
+    public TMP_InputField setBossHealth;
+    public TMP_InputField setBossAtk;
+    public TMP_InputField setBossAtkSpeed;
+    public TMP_InputField setBossMoveSpeed;
+    public TMP_InputField setBossDropGold;
+
     void Update()
     {
         string inputHealth = setHealth.text;
@@ -42,5 +49,16 @@ public class Presets : MonoBehaviour
         float.TryParse(inputEnemyMoveSpeed, out GameManager.Instance.enemySPD);
         string inputEnemyMoy = setEnemyDropGold.text;
         int.TryParse(inputEnemyMoy, out GameManager.Instance.enemyMoy);
+
+        string inputBossHP = setBossHealth.text;
+        float.TryParse(inputBossHP, out GameManager.Instance.enemyBossMaxHealth);
+        string inputBossAtk = setBossAtk.text;
+        float.TryParse(inputBossAtk, out GameManager.Instance.bossATK);
+        string inputBossAtkSpeed = setBossAtkSpeed.text;
+        float.TryParse(inputBossAtkSpeed, out GameManager.Instance.bossASPD); //speed atk
+        string inputBossMoveSpeed = setBossMoveSpeed.text;
+        float.TryParse(inputBossMoveSpeed, out GameManager.Instance.bossSPD);
+        string inputBossMoy = setBossDropGold.text;
+        int.TryParse(inputBossMoy, out GameManager.Instance.bossMoy);
     }
 }

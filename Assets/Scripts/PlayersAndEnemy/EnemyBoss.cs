@@ -7,7 +7,7 @@ public class EnemyBoss : MonoBehaviour
     public ParticleSystem particleBossAttack;
     public UIHealthBar healthBar;
 
-    private float enemyMaxHealth;
+    private float enemyBossMaxHealth;
     [SerializeField] private float enemyCurrentHealth;
 
     private float bossASPD;
@@ -18,20 +18,26 @@ public class EnemyBoss : MonoBehaviour
     private float distance; //расстояние между игроком и врагом
     void Start()
     {
-        BasicBoss boss = new BasicBoss("cultista mayor", 40, 2000, 0.5f, 1, 250);
+        /*BasicBoss boss = new BasicBoss("cultista mayor", 40, 2000, 0.5f, 1, 250);
         bossASPD = boss.enemyASPD;
         bossATK = boss.enemyATK;
         bossSPD = boss.enemySPD;
         enemyMaxHealth = boss.enemyHP;
-        bossMoy = boss.enemyMOY;
+        bossMoy = boss.enemyMOY;*/
+
+        enemyBossMaxHealth = GameManager.Instance.enemyBossMaxHealth;
+        bossATK = GameManager.Instance.enemyATK;
+        bossASPD = GameManager.Instance.enemyASPD;
+        bossSPD = GameManager.Instance.enemySPD;
+        bossMoy = GameManager.Instance.enemyMoy;
 
         player = GameObject.Find("Player").GetComponent<Player>();
         InvokeRepeating("PlayerTakeDamage", 0, bossASPD);
         particleBossAttack.Pause();
 
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-        enemyCurrentHealth = enemyMaxHealth;
-        healthBar.SetMaxHealth(enemyMaxHealth);
+        enemyCurrentHealth = enemyBossMaxHealth;
+        healthBar.SetMaxHealth(enemyBossMaxHealth);
         healthBar.gameObject.SetActive(true);
     }
 

@@ -14,21 +14,28 @@ public class GameManager : MonoBehaviour
     public bool isBoss = false;
 
     private string playerName = "Gatito";
-    public float playerAtk;
-    public float playerHp;
-    public float playerAspd;
+    //Player variables
+    public float playerHp = 100;
+    public float playerAtk = 35;
+    public float playerAspd = 0.6f;
 
-    public int gold;
+    public int gold = 0;
     //level progress
-    public int level;
-    public int stage;
+    public int level = 1;
+    public int stage = 1;
     //Enemy variables
-    public float enemyMaxHealth;
-    public float enemyATK;
-    public float enemyASPD;
-    public float enemySPD;
-    public int enemyMoy;
-        
+    public float enemyMaxHealth = 100;
+    public float enemyATK = 25;
+    public float enemyASPD = 0.5f;
+    public float enemySPD = 0.9f;
+    public int enemyMoy = 40;
+    //Enemy boss variables
+    public float enemyBossMaxHealth = 2000;
+    public float bossATK = 40;
+    public float bossASPD = 0.5f;
+    public float bossSPD = 1;
+    public int bossMoy = 250;
+
     private void Awake()
     {
         audioClips = GetComponent<AudioSource>();
