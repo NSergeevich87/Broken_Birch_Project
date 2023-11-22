@@ -15,26 +15,26 @@ public class GameManager : MonoBehaviour
 
     private string playerName = "Gatito";
     //Player variables
-    public float playerHp = 100;
-    public float playerAtk = 35;
-    public float playerAspd = 0.6f;
+    public float playerHp;
+    public float playerAtk;
+    public float playerAspd;
 
-    public int gold = 0;
+    public int gold;
     //level progress
-    public int level = 1;
-    public int stage = 1;
+    public int level;
+    public int stage;
     //Enemy variables
-    public float enemyMaxHealth = 100;
-    public float enemyATK = 25;
-    public float enemyASPD = 0.5f;
-    public float enemySPD = 0.9f;
-    public int enemyMoy = 40;
+    public float enemyMaxHealth;
+    public float enemyATK;
+    public float enemyASPD;
+    public float enemySPD;
+    public int enemyMoy;
     //Enemy boss variables
-    public float enemyBossMaxHealth = 2000;
-    public float bossATK = 40;
-    public float bossASPD = 0.5f;
-    public float bossSPD = 1;
-    public int bossMoy = 250;
+    public float enemyBossMaxHealth;
+    public float bossATK;
+    public float bossASPD;
+    public float bossSPD;
+    public int bossMoy;
 
     private void Awake()
     {
@@ -62,6 +62,29 @@ public class GameManager : MonoBehaviour
         {
             level = 1;
         }
+
+
+        //Player variables
+        playerHp = 100;
+        playerAtk = 35;
+        playerAspd = 0.6f;
+
+        gold = 0;
+        //level progress
+        level = 1;
+        stage = 1;
+        //Enemy variables
+        enemyMaxHealth = 100;
+        enemyATK = 25;
+        enemyASPD = 0.5f;
+        enemySPD = 0.9f;
+        enemyMoy = 40;
+        //Enemy boss variables
+        enemyBossMaxHealth = 2000;
+        bossATK = 40;
+        bossASPD = 0.5f;
+        bossSPD = 1;
+        bossMoy = 250;
     }
 
     [System.Serializable]
