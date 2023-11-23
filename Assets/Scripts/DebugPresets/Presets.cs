@@ -30,7 +30,7 @@ public class Presets : MonoBehaviour
     public TMP_InputField setLVL;
     public TMP_InputField setStage;
 
-    public void SavePresets()
+    public void SaveCharacterPresets()
     {
         string inputHealth = setHealth.text;
         float.TryParse(inputHealth, out GameManager.Instance.playerHp); 
@@ -40,7 +40,10 @@ public class Presets : MonoBehaviour
         float.TryParse(inputSpeedAtk, out GameManager.Instance.playerAspd);
         string inputGoldStart = setStartGold.text;
         int.TryParse(inputGoldStart, out GameManager.Instance.gold);
+    }
 
+    public void SaveEnemyPresets()
+    {
         string inputEnemyHP = setEnemyHealth.text;
         float.TryParse(inputEnemyHP, out GameManager.Instance.enemyMaxHealth);
         string inputEnemyAtk = setEnemyAtk.text;
@@ -51,7 +54,10 @@ public class Presets : MonoBehaviour
         float.TryParse(inputEnemyMoveSpeed, out GameManager.Instance.enemySPD);
         string inputEnemyMoy = setEnemyDropGold.text;
         int.TryParse(inputEnemyMoy, out GameManager.Instance.enemyMoy);
+    }
 
+    public void SaveBossPresets()
+    {
         string inputBossHP = setBossHealth.text;
         float.TryParse(inputBossHP, out GameManager.Instance.enemyBossMaxHealth);
         string inputBossAtk = setBossAtk.text;
@@ -62,7 +68,10 @@ public class Presets : MonoBehaviour
         float.TryParse(inputBossMoveSpeed, out GameManager.Instance.bossSPD);
         string inputBossMoy = setBossDropGold.text;
         int.TryParse(inputBossMoy, out GameManager.Instance.bossMoy);
+    }
 
+    public void SaveLevelPresets()
+    {
         string inputLVL = setLVL.text;
         int.TryParse(inputLVL, out GameManager.Instance.level);
         string inputStage = setStage.text;
