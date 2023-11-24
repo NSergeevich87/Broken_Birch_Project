@@ -24,19 +24,19 @@ public class MainInrarfaceScript : MonoBehaviour
         gold = GameManager.Instance.gold;
         goldText.text = gold.ToString();
 
-        powText.text = "POW: " + Math.Round((GameManager.Instance.playerAtk * (1 / GameManager.Instance.playerAspd)) + GameManager.Instance.playerHp, 2);
-        attackText.text = "ATK: " + Math.Round(GameManager.Instance.playerAtk, 1);
-        hpText.text = "HP: " + Math.Round(GameManager.Instance.playerHp, 1);
-        attackSpeedText.text = "ASPD: " + Math.Round((1 / GameManager.Instance.playerAspd), 2);
+        powText.text = "POWER " + Math.Round((GameManager.Instance.playerAtk * (1 / GameManager.Instance.playerAspd)) + GameManager.Instance.playerHp, 2) + "K";
+        attackText.text = "ATK\n" + Math.Round(GameManager.Instance.playerAtk, 1);
+        hpText.text = "HP\n" + Math.Round(GameManager.Instance.playerHp, 1);
+        attackSpeedText.text = "ASPD\n" + Math.Round((1 / GameManager.Instance.playerAspd), 2);
     }
     private void Update()
     {
         goldText.text = GameManager.Instance.gold.ToString();
 
-        powText.text = "POW: " + Math.Round((GameManager.Instance.playerAtk * (1 / GameManager.Instance.playerAspd)) + GameManager.Instance.playerHp, 2);
-        attackText.text = "ATK: " + Math.Round(GameManager.Instance.playerAtk, 1);
-        hpText.text = "HP: " + Math.Round(GameManager.Instance.playerHp, 1);
-        attackSpeedText.text = "ASPD: " + Math.Round((1 / GameManager.Instance.playerAspd), 2);
+        powText.text = "POWER " + Math.Round((GameManager.Instance.playerAtk * (1 / GameManager.Instance.playerAspd)) + GameManager.Instance.playerHp, 2) + "K";
+        attackText.text = "ATK\n" + Math.Round(GameManager.Instance.playerAtk, 1);
+        hpText.text = "HP\n" + Math.Round(GameManager.Instance.playerHp, 1);
+        attackSpeedText.text = "ASPD\n" + Math.Round((1 / GameManager.Instance.playerAspd), 2);
     }
     public void BackToMainMenu()
     {
