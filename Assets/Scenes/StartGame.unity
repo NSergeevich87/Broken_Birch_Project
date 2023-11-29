@@ -3904,7 +3904,7 @@ Transform:
   m_GameObject: {fileID: 487303262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02223444, y: 0.70000005, z: -10.017951}
+  m_LocalPosition: {x: 0.021147251, y: 0.70000005, z: -10.017951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6137,7 +6137,7 @@ Transform:
   m_GameObject: {fileID: 800522575}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02223444, y: 0.70000005, z: -10.017951}
+  m_LocalPosition: {x: 0.021147251, y: 0.70000005, z: -10.017951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6269,6 +6269,12 @@ MonoBehaviour:
   bossASPD: 0
   bossSPD: 0
   bossMoy: 0
+  isShouldUpStats: 0
+  CoefficientOfUpStats: 1.1
+  EnemyGoldUp: 5
+  priceHp: 100
+  priceAtk: 100
+  priceAspd: 100
 --- !u!4 &831133669
 Transform:
   m_ObjectHideFlags: 0
@@ -7215,6 +7221,7 @@ MonoBehaviour:
   hpText: {fileID: 92317511}
   attackSpeedText: {fileID: 2042364858}
   powText: {fileID: 1960651535}
+  priceAtkText: {fileID: 755383851}
 --- !u!82 &1016244544
 AudioSource:
   m_ObjectHideFlags: 0

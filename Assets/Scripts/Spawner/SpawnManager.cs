@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    private UIProgressBoss progressBoss;
+    //private UIProgressBoss progressBoss;
 
     public GameObject[] enemySpawn;
 
@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     private float playerDistance;
     void Start()
     {
-        progressBoss = GameObject.Find("ProgressBar").GetComponent<UIProgressBoss>();
+        //progressBoss = GameObject.Find("ProgressBar").GetComponent<UIProgressBoss>();
         InvokeRepeating("SpawnEnemy", 0, 3);
     }
 
@@ -53,18 +53,24 @@ public class SpawnManager : MonoBehaviour
     {
         float[] linesSpawn = new[] { 2.2f, 2.7f, 3.2f, 3.7f, 4.2f, 4.7f, 5.2f};
 
-        int spawnCount = Random.Range(1, 5);
+        //int spawnCount = Random.Range(1, 5);
 
         if (enemy == 0)
         {
-            for (int i = 0; i < spawnCount; i++)
+            if (GameManager.Instance.isShouldUpStats)
+            {
+                //повышаем характеристики
+                GameManager.Instance.EnemyStatsUp();
+                GameManager.Instance.isShouldUpStats = false;
+            }
+
+            for (int i = 0; i < GameManager.Instance.stage; i++)
             {
                 float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
                 Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
                 Instantiate(enemySpawn[enemy], spawnPlace, enemySpawn[enemy].transform.rotation);
                 //isAlive = true;
             }
-
         }
         if (enemy == 1)
         {

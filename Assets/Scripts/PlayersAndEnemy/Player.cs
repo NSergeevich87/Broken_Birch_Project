@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public float currentHealth;
 
     public GameObject bomb;
-
+    
     private float aspd;
     public float atk { get; private set; }
 
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
             StartCoroutine(Wait(1));
         }*/
 
-        Debug.Log(atk + " " + maxHealth + " " + aspd);
+        //Debug.Log(atk + " " + maxHealth + " " + aspd);
         //јвто–еген ’ѕ
         if (currentHealth < maxHealth)
         {

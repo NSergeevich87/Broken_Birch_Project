@@ -53,6 +53,7 @@ public class EnemyBoss : MonoBehaviour
             GameManager.Instance.gold += bossMoy;
             GameManager.Instance.level += 1;
             GameManager.Instance.stage = 0;
+            GameManager.Instance.isShouldUpStats = true;
 
             //spawnManager.isBossAlive = false;
             GameManager.Instance.isBoss = false;

@@ -16,7 +16,9 @@ public class MainInrarfaceScript : MonoBehaviour
     public TextMeshProUGUI attackSpeedText;
     public TextMeshProUGUI powText;
     private int gold;
-    
+
+    public TextMeshProUGUI priceAtkText;
+
     private void Awake()
     {
         audioClips = GetComponent<AudioSource>();
@@ -32,6 +34,7 @@ public class MainInrarfaceScript : MonoBehaviour
     private void Update()
     {
         goldText.text = GameManager.Instance.gold.ToString();
+        priceAtkText.text = "UPD\n" + GameManager.Instance.priceAtk.ToString();
 
         powText.text = "POWER " + Math.Round((GameManager.Instance.playerAtk * (1 / GameManager.Instance.playerAspd)) + GameManager.Instance.playerHp, 2) + "K";
         attackText.text = "ATK\n" + Math.Round(GameManager.Instance.playerAtk, 1);
@@ -47,10 +50,13 @@ public class MainInrarfaceScript : MonoBehaviour
     public void addAtk()
     {
         audioClips.PlayOneShot(clickClip, 1.0f);
-        if (GameManager.Instance.gold >= 100)
+        if (GameManager.Instance.gold >= GameManager.Instance.priceAtk)
         {
+            //сколько прибавить
             GameManager.Instance.playerAtk += 5;
-            GameManager.Instance.gold -= 100;
+            GameManager.Instance.gold -= GameManager.Instance.priceAtk;
+            //увеличиваем стоимость
+            GameManager.Instance.priceAtk += 5;
         }
     }
     public void addHp()

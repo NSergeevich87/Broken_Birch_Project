@@ -36,8 +36,21 @@ public class GameManager : MonoBehaviour
     public float bossSPD;
     public int bossMoy;
 
+    //Если босс умер увеличиваем характеристики врагам
+    public bool isShouldUpStats = false;
+    public float CoefficientOfUpStats = 1.1f;
+    public int EnemyGoldUp = 5;
+
+    //Стоимость апгрейда
+    public int priceHp = 100;
+    public int priceAtk = 100;
+    public int priceAspd = 100;
+
     private void Awake()
     {
+
+        Screen.SetResolution(768, 1366, true);
+
         audioClips = GetComponent<AudioSource>();
 
         if (Instance != null)
@@ -85,6 +98,18 @@ public class GameManager : MonoBehaviour
         bossASPD = 0.5f;
         bossSPD = 1;
         bossMoy = 250;
+    }
+
+    public void EnemyStatsUp()
+    {
+        enemyMaxHealth *= CoefficientOfUpStats;
+        enemyATK *= CoefficientOfUpStats;
+        enemyASPD /= CoefficientOfUpStats;
+        enemyMoy += EnemyGoldUp;
+    }
+    private void Update()
+    {
+        Debug.Log(enemyMaxHealth + " " + enemyATK + " " + enemyASPD + " " + enemyMoy);
     }
 
     [System.Serializable]
