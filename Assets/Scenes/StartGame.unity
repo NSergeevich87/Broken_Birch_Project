@@ -6275,6 +6275,11 @@ MonoBehaviour:
   priceHp: 100
   priceAtk: 100
   priceAspd: 100
+  HpUp: 15
+  AtkUp: 5
+  hpClick: 0
+  atkClick: 1
+  aspdClick: 0
 --- !u!4 &831133669
 Transform:
   m_ObjectHideFlags: 0
@@ -7222,6 +7227,8 @@ MonoBehaviour:
   attackSpeedText: {fileID: 2042364858}
   powText: {fileID: 1960651535}
   priceAtkText: {fileID: 755383851}
+  priceHpText: {fileID: 196534591}
+  priceAspdText: {fileID: 164106574}
 --- !u!82 &1016244544
 AudioSource:
   m_ObjectHideFlags: 0

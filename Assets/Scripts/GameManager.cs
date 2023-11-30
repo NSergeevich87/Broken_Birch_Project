@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public float playerAtk;
     public float playerAspd;
 
-    public int gold;
+    public float gold;
     //level progress
     public int level;
     public int stage;
@@ -42,9 +42,18 @@ public class GameManager : MonoBehaviour
     public int EnemyGoldUp = 5;
 
     //Стоимость апгрейда
-    public int priceHp = 100;
-    public int priceAtk = 100;
-    public int priceAspd = 100;
+    public float priceHp = 100;
+    public float priceAtk = 100;
+    public float priceAspd = 100;
+
+    //Коэффициент удорожания в %
+    public float HpUp = 5;
+    public float AtkUp = 2;
+
+    //Click counter
+    public int hpClick = 0;
+    public int atkClick = 0;
+    public int aspdClick = 0;
 
     private void Awake()
     {
@@ -120,7 +129,7 @@ public class GameManager : MonoBehaviour
         public float hp;
         public float aspd;
 
-        public int gold;
+        public float gold;
 
         public int level;
         public int stage;

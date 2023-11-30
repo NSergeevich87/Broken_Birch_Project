@@ -39,7 +39,7 @@ public class Presets : MonoBehaviour
         string inputSpeedAtk = setAtkSpeed.text;
         float.TryParse(inputSpeedAtk, out GameManager.Instance.playerAspd);
         string inputGoldStart = setStartGold.text;
-        int.TryParse(inputGoldStart, out GameManager.Instance.gold);
+        float.TryParse(inputGoldStart, out GameManager.Instance.gold);
     }
 
     public void SaveEnemyPresets()
