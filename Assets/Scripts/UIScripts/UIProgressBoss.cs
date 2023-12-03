@@ -25,8 +25,8 @@ public class UIProgressBoss : MonoBehaviour
 
     void Update()
     {
-        levelProgressText.text = $"{GameManager.Instance.level} - {GameManager.Instance.stage}";
-        slider.value = GameManager.Instance.stage - 1;
+        levelProgressText.text = $"CULTIST DUNGEON 1-({GameManager.Instance.level}/{GameManager.Instance.stage})";
+        slider.value = GameManager.Instance.stage;
 
         /*if (GameManager.Instance.stage == 9 && GameManager.Instance.isBossDead)
         {

@@ -30,10 +30,22 @@ public class Presets : MonoBehaviour
     public TMP_InputField setLVL;
     public TMP_InputField setStage;
 
+    // LevelEnd statsUp of enemies
+    public TMP_InputField setEnemiesUpCoefficient;
+    public TMP_InputField setGoldUpFromEnemies;
+
+    //Значения прибавления характеристик
+    public TMP_InputField setHpUp;
+    public TMP_InputField setAtkUp;
+    //Значения удорожания
+    public TMP_InputField setHpPriceUp;
+    public TMP_InputField setAtkPriceUp;
+    public TMP_InputField setAspdPriceUp;
+
     public void SaveCharacterPresets()
     {
         string inputHealth = setHealth.text;
-        float.TryParse(inputHealth, out GameManager.Instance.playerHp); 
+        float.TryParse(inputHealth, out GameManager.Instance.playerHp);
         string inputAtk = setAtk.text;
         float.TryParse(inputAtk, out GameManager.Instance.playerAtk);
         string inputSpeedAtk = setAtkSpeed.text;
@@ -78,6 +90,32 @@ public class Presets : MonoBehaviour
         int.TryParse(inputStage, out GameManager.Instance.stage);
     }
 
+    public void SaveEnemyStatsUp()
+    {
+        string inputCoefficientUp = setEnemiesUpCoefficient.text;
+        float.TryParse(inputCoefficientUp, out GameManager.Instance.CoefficientOfUpStats);
+        string inputGoldUpFromEnemy = setGoldUpFromEnemies.text;
+        int.TryParse(inputGoldUpFromEnemy, out GameManager.Instance.EnemyGoldUp);
+    }
+
+    public void SavePlayerStatsUp()
+    {
+        string inputHpUp = setHpUp.text;
+        float.TryParse(inputHpUp, out GameManager.Instance.HpUp);
+        string inputAtkUp = setAtkUp.text;
+        float.TryParse(inputAtkUp, out GameManager.Instance.AtkUp);
+    }
+
+    public void SavePlayerPriceUp()
+    {
+        string inputHpPrice = setHpPriceUp.text;
+        float.TryParse(inputHpPrice, out GameManager.Instance.PriceHpUp);
+        string inputAtkPrice = setAtkPriceUp.text;
+        float.TryParse(inputAtkPrice, out GameManager.Instance.PriceAtkUp);
+        string inputAspdPrice = setAspdPriceUp.text;
+        float.TryParse(inputAspdPrice, out GameManager.Instance.PriceAspdUp);
+    }
+
     public void ResetToDefaultPresets()
     {
         //Player variables
@@ -101,5 +139,15 @@ public class Presets : MonoBehaviour
         GameManager.Instance.bossASPD = 0.5f;
         GameManager.Instance.bossSPD = 1;
         GameManager.Instance.bossMoy = 250;
+        //Коэффициент усиливающий противников с каждым уровнем
+        GameManager.Instance.CoefficientOfUpStats = 1.1f;
+        GameManager.Instance.EnemyGoldUp = 5;
+        //Насколько в процентном соотношении от предыдущего числа будут увеличиваться характеристики после каждого нажатия
+        GameManager.Instance.HpUp = 5;
+        GameManager.Instance.AtkUp = 5;
+        //Насколько в процентном соотношении от предыдущего числа будет увеличиваться цена после каждого нажатия
+        GameManager.Instance.PriceHpUp = 5;
+        GameManager.Instance.PriceAtkUp = 5;
+        GameManager.Instance.PriceAspdUp = 5;
     }
 }

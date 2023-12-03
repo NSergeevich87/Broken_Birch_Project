@@ -65,7 +65,7 @@ public class MainInrarfaceScript : MonoBehaviour
             GameManager.Instance.playerAtk += GameManager.Instance.playerAtk * (GameManager.Instance.AtkUp / 100);
             GameManager.Instance.gold -= GameManager.Instance.priceAtk;
             //увеличиваем стоимость
-            GameManager.Instance.priceAtk += GameManager.Instance.priceAtk * (GameManager.Instance.AtkUp / 100);
+            GameManager.Instance.priceAtk += GameManager.Instance.priceAtk * (GameManager.Instance.PriceAtkUp / 100);
         }
     }
     public void addHp()
@@ -77,7 +77,7 @@ public class MainInrarfaceScript : MonoBehaviour
         {
             GameManager.Instance.playerHp += GameManager.Instance.playerHp * (GameManager.Instance.HpUp / 100);
             GameManager.Instance.gold -= GameManager.Instance.priceHp;
-            GameManager.Instance.priceHp += GameManager.Instance.priceHp * (GameManager.Instance.HpUp / 100);
+            GameManager.Instance.priceHp += GameManager.Instance.priceHp * (GameManager.Instance.PriceHpUp / 100);
         }
     }
     public void addAspd()
@@ -89,7 +89,7 @@ public class MainInrarfaceScript : MonoBehaviour
         {
             GameManager.Instance.playerAspd -= (GameManager.Instance.playerAspd / 100);
             GameManager.Instance.gold -= GameManager.Instance.priceAspd;
-            GameManager.Instance.priceAspd += GameManager.Instance.priceAspd * 0.05f;
+            GameManager.Instance.priceAspd += GameManager.Instance.priceAspd * (GameManager.Instance.PriceAspdUp / 100);
         }
     }
     public void PlaySound()

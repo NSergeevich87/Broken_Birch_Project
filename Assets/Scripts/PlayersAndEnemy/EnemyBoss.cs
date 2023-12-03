@@ -18,18 +18,11 @@ public class EnemyBoss : MonoBehaviour
     private float distance; //расстояние между игроком и врагом
     void Start()
     {
-        /*BasicBoss boss = new BasicBoss("cultista mayor", 40, 2000, 0.5f, 1, 250);
-        bossASPD = boss.enemyASPD;
-        bossATK = boss.enemyATK;
-        bossSPD = boss.enemySPD;
-        enemyMaxHealth = boss.enemyHP;
-        bossMoy = boss.enemyMOY;*/
-
         enemyBossMaxHealth = GameManager.Instance.enemyBossMaxHealth;
-        bossATK = GameManager.Instance.enemyATK;
-        bossASPD = GameManager.Instance.enemyASPD;
-        bossSPD = GameManager.Instance.enemySPD;
-        bossMoy = GameManager.Instance.enemyMoy;
+        bossATK = GameManager.Instance.bossATK;
+        bossASPD = GameManager.Instance.bossASPD;
+        bossSPD = GameManager.Instance.bossSPD;
+        bossMoy = GameManager.Instance.bossMoy;
 
         player = GameObject.Find("Player").GetComponent<Player>();
         InvokeRepeating("PlayerTakeDamage", 0, bossASPD);
@@ -54,23 +47,15 @@ public class EnemyBoss : MonoBehaviour
             GameManager.Instance.level += 1;
             GameManager.Instance.stage = 0;
             GameManager.Instance.isShouldUpStats = true;
-
-            //spawnManager.isBossAlive = false;
             GameManager.Instance.isBoss = false;
-
-            //deadReterner();
         }
         if (distance > 1.5)
         {
             var pos = transform.localPosition;
-            pos.x -= bossSPD * Time.deltaTime; //Mathf.MoveTowards(pos.x, -3, Time.deltaTime);
+            pos.x -= bossSPD * Time.deltaTime; 
             transform.localPosition = pos;
         }
     }
-    /*public void deadReterner()
-    {
-        GameManager.Instance.stage = 1;
-    }*/
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -80,14 +65,6 @@ public class EnemyBoss : MonoBehaviour
             TakeDamage();
         }
     }
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Bomb"))
-        {
-            Destroy(collision.gameObject);
-            TakeDamage();
-        }
-    }*/
 
     void TakeDamage()
     {

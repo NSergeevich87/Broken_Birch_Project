@@ -48,7 +48,10 @@ public class GameManager : MonoBehaviour
 
     //Коэффициент удорожания в %
     public float HpUp = 5;
-    public float AtkUp = 2;
+    public float PriceHpUp = 5;
+    public float AtkUp = 5;
+    public float PriceAtkUp = 5;
+    public float PriceAspdUp = 5;
 
     //Click counter
     public int hpClick = 0;
@@ -113,7 +116,7 @@ public class GameManager : MonoBehaviour
     {
         enemyMaxHealth *= CoefficientOfUpStats;
         enemyATK *= CoefficientOfUpStats;
-        enemyASPD /= CoefficientOfUpStats;
+        enemyASPD /= 1.1f;
         enemyMoy += EnemyGoldUp;
     }
     private void Update()

@@ -2,80 +2,65 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    //private UIProgressBoss progressBoss;
-
     public GameObject[] enemySpawn;
 
-    //public bool isAlive = false; //есть ли активный враг
-    //public bool isBossAlive = false;
-
     private float playerDistance;
-    void Start()
+    void Awake()
     {
-        //progressBoss = GameObject.Find("ProgressBar").GetComponent<UIProgressBoss>();
-        InvokeRepeating("SpawnEnemy", 0, 3);
+        if (GameManager.Instance.stage == 9)
+        {
+            StartSpawnBoss();
+        }
+        else StartSpawnEnemy();
     }
-
-    void Update()
+    private void Update()
     {
+        if (GameManager.Instance.stage == 9)
+        {
+            GameManager.Instance.isBoss = true;
+        }
+    }
+    void LateUpdate()
+    {
+        if (!GameObject.FindGameObjectWithTag("Enemy") && !(GameManager.Instance.stage == 9))
+        {
+            GameManager.Instance.stage += 1;
+            StartSpawnEnemy();
+        }
+        else if (!GameObject.FindGameObjectWithTag("Enemy") && (GameManager.Instance.stage == 9))
+        {
+            StartSpawnBoss();
+        }
+
         playerDistance = Vector3.Distance(transform.position, GameObject.Find("Player").transform.position);
 
         if (playerDistance < 10)
         {
             transform.Translate(Vector3.right * Time.deltaTime * 3);
         }
-
-        if (GameManager.Instance.stage == 9)
-        {
-            GameManager.Instance.isBoss = true;
-        }
     }
 
-    void SpawnEnemy()
-    {
-        if (!GameObject.FindGameObjectWithTag("Enemy"))
-        {
-
-            if (GameManager.Instance.stage < 9 && GameManager.Instance.isBoss == false)
-            {
-                GameManager.Instance.stage += 1;
-                StartSpawnEnemy(0);
-            }
-            else if (GameManager.Instance.isBoss == true)
-            {
-                StartSpawnEnemy(1);
-            }
-        }
-    }
-
-
-    void StartSpawnEnemy(int enemy)
+    void StartSpawnEnemy()
     {
         float[] linesSpawn = new[] { 2.2f, 2.7f, 3.2f, 3.7f, 4.2f, 4.7f, 5.2f};
 
-        //int spawnCount = Random.Range(1, 5);
-
-        if (enemy == 0)
+        if (GameManager.Instance.isShouldUpStats)
         {
-            if (GameManager.Instance.isShouldUpStats)
-            {
-                //повышаем характеристики
-                GameManager.Instance.EnemyStatsUp();
-                GameManager.Instance.isShouldUpStats = false;
-            }
+            //повышаем характеристики
+            GameManager.Instance.EnemyStatsUp();
+            GameManager.Instance.isShouldUpStats = false;
+        }
 
-            for (int i = 0; i < GameManager.Instance.stage; i++)
-            {
-                float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
-                Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
-                Instantiate(enemySpawn[enemy], spawnPlace, enemySpawn[enemy].transform.rotation);
-                //isAlive = true;
-            }
-        }
-        if (enemy == 1)
+        for (int i = 0; i < GameManager.Instance.stage; i++)
         {
-            Instantiate(enemySpawn[enemy], transform.position, enemySpawn[enemy].transform.rotation);
-            //isBossAlive = true;
+            float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+            Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
+            Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
         }
+    }
+
+    void StartSpawnBoss()
+    {
+        Instantiate(enemySpawn[1], transform.position, enemySpawn[1].transform.rotation);
     }
 }

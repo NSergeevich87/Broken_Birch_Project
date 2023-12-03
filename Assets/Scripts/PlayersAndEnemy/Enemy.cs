@@ -21,14 +21,6 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        //BasicEnemy enemy = new BasicEnemy("cultista simple", 25, 100, 0.5f, 0.9f, 40);
-        //BasicEnemy enemy = new BasicEnemy();
-        //enemyATK = enemy.enemyATK;
-        //enemyASPD = enemy.enemyASPD;
-        //enemyMaxHealth = enemy.enemyHP;
-        //enemySPD = enemy.enemySPD;
-        //enemyMoy = enemy.enemyMOY;
-
         enemyMaxHealth = GameManager.Instance.enemyMaxHealth;
         enemyATK = GameManager.Instance.enemyATK;
         enemyASPD = GameManager.Instance.enemyASPD;
@@ -517,15 +509,6 @@ public class Enemy : MonoBehaviour
                     }
                 }
                 break;
-
-                /*default:
-                    if (Vector3.Distance(player.transform.position, transform.position) > 1f)
-                    {
-                        target = player.transform.position - transform.position;
-                        transform.position += target.normalized * Time.deltaTime * enemySPD;
-                    }
-
-                    break;*/
         }
 
         if (enemyCurrentHealth <= 0 || spawnDistance > 20)
@@ -534,19 +517,9 @@ public class Enemy : MonoBehaviour
 
             GameManager.Instance.gold += enemyMoy;
             Destroy(gameObject);
-            /*if (!GameObject.FindGameObjectWithTag("Enemy"))
-            {
-                deadReterner();
-                spawnManager.isAlive = false;
-            }*/
         }
 
     }
-
-    /*public void deadReterner()
-    {
-        GameManager.Instance.stage += 1;
-    }*/
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -556,14 +529,6 @@ public class Enemy : MonoBehaviour
             TakeDamage();
         }
     }
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Bomb"))
-        {
-            Destroy(collision.gameObject);
-            TakeDamage();
-        }
-    }*/
 
     void TakeDamage()
     {
@@ -577,7 +542,6 @@ public class Enemy : MonoBehaviour
 
     private void PlayerTakeDamage()
     {
-        //Debug.Log(distance);
         if (distance > 0 && distance < 1.6)
         {
             if (player.currentHealth > 0)
