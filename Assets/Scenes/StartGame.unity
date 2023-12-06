@@ -2043,7 +2043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12.499971, y: 0}
+  m_AnchoredPosition: {x: 12.4999695, y: 0}
   m_SizeDelta: {x: -25.00006, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &196534591
@@ -2767,7 +2767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 825a23dfb13385947a25bd4296bc3f0f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1add320e1f7033f4681e7308cc523f42, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3629,7 +3629,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1add320e1f7033f4681e7308cc523f42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 825a23dfb13385947a25bd4296bc3f0f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4127,7 +4127,7 @@ Transform:
   m_GameObject: {fileID: 487303262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.021147251, y: 0.70000005, z: -10.017951}
+  m_LocalPosition: {x: 0.02223444, y: 0.70000005, z: -10.017951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6330,7 +6330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -247.30359}
+  m_AnchoredPosition: {x: 0, y: -247.29886}
   m_SizeDelta: {x: 1080, y: 1036.6218}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &800522575
@@ -6398,7 +6398,7 @@ Transform:
   m_GameObject: {fileID: 800522575}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.021147251, y: 0.70000005, z: -10.017951}
+  m_LocalPosition: {x: 0.02223444, y: 0.70000005, z: -10.017951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7715,7 +7715,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 487303264}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
 
-        Screen.SetResolution(768, 1366, true);
+        //Screen.SetResolution(768, 1366, false);
 
         audioClips = GetComponent<AudioSource>();
 

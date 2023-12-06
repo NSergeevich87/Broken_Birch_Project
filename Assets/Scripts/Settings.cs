@@ -15,7 +15,7 @@ public class Settings : MonoBehaviour
     void Start()
     {
 
-        Screen.SetResolution(768, 1366, true);
+        //Screen.SetResolution(768, 1366, true);
 
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
