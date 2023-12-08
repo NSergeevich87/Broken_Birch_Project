@@ -28,18 +28,18 @@ public class GameManager : MonoBehaviour
     public float enemyATK;
     public float enemyASPD;
     public float enemySPD;
-    public int enemyMoy;
+    public float enemyMoy;
     //Enemy boss variables
     public float enemyBossMaxHealth;
     public float bossATK;
     public float bossASPD;
     public float bossSPD;
-    public int bossMoy;
+    public float bossMoy;
 
     //Если босс умер увеличиваем характеристики врагам
     public bool isShouldUpStats = false;
-    public float CoefficientOfUpStats = 1.1f;
-    public int EnemyGoldUp = 5;
+    public float CoefficientOfUpStats = 1.5f;
+    public int EnemyGoldUp = 2;
 
     //Стоимость апгрейда
     public float priceHp = 100;
@@ -117,7 +117,12 @@ public class GameManager : MonoBehaviour
         enemyMaxHealth *= CoefficientOfUpStats;
         enemyATK *= CoefficientOfUpStats;
         enemyASPD /= 1.1f;
-        enemyMoy += EnemyGoldUp;
+        enemyMoy *= EnemyGoldUp;
+
+        enemyBossMaxHealth *= CoefficientOfUpStats;
+        bossATK *= CoefficientOfUpStats;
+        bossASPD /= 1.1f;
+        bossMoy *= EnemyGoldUp;
     }
     private void Update()
     {

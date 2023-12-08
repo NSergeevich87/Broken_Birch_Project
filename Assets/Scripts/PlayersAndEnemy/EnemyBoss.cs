@@ -13,7 +13,7 @@ public class EnemyBoss : MonoBehaviour
     private float bossASPD;
     private float bossATK;
     private float bossSPD;
-    private int bossMoy;
+    private float bossMoy;
 
     private float distance; //расстояние между игроком и врагом
     void Start()
@@ -36,6 +36,8 @@ public class EnemyBoss : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(enemyBossMaxHealth + " " + bossATK + " " + bossMoy);
+
         distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
 
         if (enemyCurrentHealth <= 0)

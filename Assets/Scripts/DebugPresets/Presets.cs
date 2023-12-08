@@ -65,7 +65,7 @@ public class Presets : MonoBehaviour
         string inputEnemyMoveSpeed = setEnemyMoveSpeed.text;
         float.TryParse(inputEnemyMoveSpeed, out GameManager.Instance.enemySPD);
         string inputEnemyMoy = setEnemyDropGold.text;
-        int.TryParse(inputEnemyMoy, out GameManager.Instance.enemyMoy);
+        float.TryParse(inputEnemyMoy, out GameManager.Instance.enemyMoy);
     }
 
     public void SaveBossPresets()
@@ -79,7 +79,7 @@ public class Presets : MonoBehaviour
         string inputBossMoveSpeed = setBossMoveSpeed.text;
         float.TryParse(inputBossMoveSpeed, out GameManager.Instance.bossSPD);
         string inputBossMoy = setBossDropGold.text;
-        int.TryParse(inputBossMoy, out GameManager.Instance.bossMoy);
+        float.TryParse(inputBossMoy, out GameManager.Instance.bossMoy);
     }
 
     public void SaveLevelPresets()
@@ -140,8 +140,8 @@ public class Presets : MonoBehaviour
         GameManager.Instance.bossSPD = 1;
         GameManager.Instance.bossMoy = 250;
         //Коэффициент усиливающий противников с каждым уровнем
-        GameManager.Instance.CoefficientOfUpStats = 1.1f;
-        GameManager.Instance.EnemyGoldUp = 5;
+        GameManager.Instance.CoefficientOfUpStats = 1.5f;
+        GameManager.Instance.EnemyGoldUp = 2;
         //Насколько в процентном соотношении от предыдущего числа будут увеличиваться характеристики после каждого нажатия
         GameManager.Instance.HpUp = 5;
         GameManager.Instance.AtkUp = 5;

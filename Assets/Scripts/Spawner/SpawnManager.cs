@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    private bool isMasStage = true;
     public GameObject[] enemySpawn;
 
     private float playerDistance;
@@ -24,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (!GameObject.FindGameObjectWithTag("Enemy") && !(GameManager.Instance.stage == 9))
         {
-            GameManager.Instance.stage += 1;
+            if (isMasStage) GameManager.Instance.stage += 1;
             StartSpawnEnemy();
         }
         else if (!GameObject.FindGameObjectWithTag("Enemy") && (GameManager.Instance.stage == 9))
@@ -62,5 +63,10 @@ public class SpawnManager : MonoBehaviour
     void StartSpawnBoss()
     {
         Instantiate(enemySpawn[1], transform.position, enemySpawn[1].transform.rotation);
+    }
+
+    public void SetIsMasStage(bool value)
+    {
+        isMasStage = value;
     }
 }

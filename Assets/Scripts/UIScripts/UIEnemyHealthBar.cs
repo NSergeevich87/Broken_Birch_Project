@@ -21,6 +21,7 @@ public class UIEnemyHealthBar : MonoBehaviour
         
     }
 
+
     public void SetMaxEnemyHealth(float health)
     {
         slider.maxValue = health;

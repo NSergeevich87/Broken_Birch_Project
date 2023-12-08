@@ -4,10 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    private SpawnManager spawnManager;
+
+    public Animator animator;
+
     private AudioSource audioClips;
     public AudioClip magicSpell;
 
-    public UIHealthBar healthBar;
+    //public UIHealthBar healthBar;
+    public PlayeOneHealthBar healthBar;
     private float maxHealth;
     public float currentHealth;
 
@@ -19,8 +24,12 @@ public class Player : MonoBehaviour
     private float distance = 10;
     [SerializeField] private float speedMove;
     private float timeElapsed = 0f;
+
+    private bool isPlayerDead;
     void Start()
     {
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+
         audioClips = GetComponent<AudioSource>();
 
         maxHealth = GameManager.Instance.playerHp;
@@ -58,7 +67,7 @@ public class Player : MonoBehaviour
         {
             GameManager.Instance.stage = 0;
             GameManager.Instance.isBoss = false;
-            SceneManager.LoadScene(1);
+            TransitLife();
         }
 
         //—читаем дистанцию до врага
@@ -67,7 +76,7 @@ public class Player : MonoBehaviour
             distance = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Enemy").transform.position);
         }
 
-        if (distance > 6 || !GameObject.FindGameObjectWithTag("Enemy"))
+        if (!isPlayerDead && distance > 6 || !GameObject.FindGameObjectWithTag("Enemy") && !isPlayerDead)
         {
             PlayerMove();
         }
@@ -86,15 +95,33 @@ public class Player : MonoBehaviour
     IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
-        speedMove = 3;
+        isPlayerDead = false;
+        spawnManager.SetIsMasStage(true);
+        currentHealth = maxHealth;
+        animator.SetBool("isDead", false);
+        //speedMove = 3;
     }
-    public void PlayerMove()
+    private void PlayerMove()
     {
         transform.Translate(Vector3.right * Time.deltaTime * speedMove);
+    }
+    private void MoveBack()
+    {
+        transform.Translate(-Vector3.right * Time.deltaTime * speedMove);
     }
     private void BombAtack()
     {
         audioClips.PlayOneShot(magicSpell, 1.0f);
         Instantiate(bomb, transform.position, bomb.transform.rotation);
+    }
+
+    private void TransitLife()
+    {
+        MoveBack();
+        Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+        isPlayerDead = true;
+        spawnManager.SetIsMasStage(false);
+        animator.SetBool("isDead", true);
+        StartCoroutine(Wait(2));
     }
 }

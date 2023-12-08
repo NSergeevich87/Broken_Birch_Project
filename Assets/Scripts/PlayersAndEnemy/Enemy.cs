@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     private float enemyASPD;
     private float enemyATK;
     private float enemySPD;
-    private int enemyMoy;
+    private float enemyMoy;
 
     private float spawnDistance; //расстояние между спауном и врагом
     private float distance; //расстояние между игроком и врагом
