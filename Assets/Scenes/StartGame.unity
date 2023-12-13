@@ -4253,7 +4253,7 @@ Transform:
   m_GameObject: {fileID: 487303262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.021147251, y: 0.70000005, z: -10.017951}
+  m_LocalPosition: {x: 0.02223444, y: 0.70000005, z: -10.017951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6560,7 +6560,7 @@ Transform:
   m_GameObject: {fileID: 800522575}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.021147251, y: 0.70000005, z: -10.017951}
+  m_LocalPosition: {x: 0.02223444, y: 0.70000005, z: -10.017951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6703,6 +6703,7 @@ MonoBehaviour:
   AtkUp: 5
   PriceAtkUp: 5
   PriceAspdUp: 5
+  bSpawn: 1
   hpClick: 0
   atkClick: 1
   aspdClick: 0
@@ -8768,6 +8769,7 @@ GameObject:
   - component: {fileID: 1236661661}
   - component: {fileID: 1236661665}
   - component: {fileID: 1236661666}
+  - component: {fileID: 1236661667}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8978,6 +8980,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &1236661667
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236661660}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 17.23
 --- !u!1 &1239754383
 GameObject:
   m_ObjectHideFlags: 0

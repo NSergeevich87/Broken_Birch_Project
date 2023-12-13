@@ -22,10 +22,15 @@ public class Player : MonoBehaviour
     public float atk { get; private set; }
 
     private float distance = 10;
+    private float curDistance;
     [SerializeField] private float speedMove;
     private float timeElapsed = 0f;
 
     private bool isPlayerDead;
+
+    //enemy coounter
+    private int enemyCounter;
+    private int tar;
     void Start()
     {
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
@@ -71,18 +76,31 @@ public class Player : MonoBehaviour
         }
 
         //—читаем дистанцию до врага
+        
+        //Vector3 target = enemies[tar].transform.position;
+
         if (GameObject.FindGameObjectWithTag("Enemy"))
         {
+            /*GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                curDistance = Vector3.Distance(transform.position, enemies[i].transform.position);
+                if (curDistance <= distance)
+                {
+                    distance = curDistance;
+                    tar = i;
+                }
+            }*/
             distance = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Enemy").transform.position);
         }
 
-        if (!isPlayerDead && distance > 6 || !GameObject.FindGameObjectWithTag("Enemy") && !isPlayerDead)
+        if (!isPlayerDead && distance > 8 || !GameObject.FindGameObjectWithTag("Enemy") && !isPlayerDead)
         {
             PlayerMove();
         }
-        
+
         //StartCoroutine(Wait(aspd));
-        if (distance <= 6 && GameObject.FindGameObjectWithTag("Enemy"))
+        if (distance <= 8 && GameObject.FindGameObjectWithTag("Enemy"))
         {
             timeElapsed += Time.deltaTime;
             if (timeElapsed >= aspd)
@@ -92,10 +110,17 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    IEnumerator Wait2(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameManager.Instance.bSpawn = true;
+    }
     IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
         isPlayerDead = false;
+        GameManager.Instance.bSpawn = true;
         spawnManager.SetIsMasStage(true);
         currentHealth = maxHealth;
         animator.SetBool("isDead", false);
@@ -103,7 +128,7 @@ public class Player : MonoBehaviour
     }
     private void PlayerMove()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * speedMove);
+       transform.Translate(Vector3.right * Time.deltaTime * speedMove);
     }
     private void MoveBack()
     {
@@ -119,9 +144,19 @@ public class Player : MonoBehaviour
     {
         MoveBack();
         Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+        GameManager.Instance.bSpawn = false;
         isPlayerDead = true;
         spawnManager.SetIsMasStage(false);
         animator.SetBool("isDead", true);
         StartCoroutine(Wait(2));
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            enemyCounter++;
+            Debug.Log(enemyCounter);
+        }
     }
 }

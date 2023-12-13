@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -23,19 +24,22 @@ public class SpawnManager : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (!GameObject.FindGameObjectWithTag("Enemy") && !(GameManager.Instance.stage == 9))
+        if (GameManager.Instance.bSpawn)
         {
-            if (isMasStage) GameManager.Instance.stage += 1;
-            StartSpawnEnemy();
-        }
-        else if (!GameObject.FindGameObjectWithTag("Enemy") && (GameManager.Instance.stage == 9))
-        {
-            StartSpawnBoss();
+            if (!GameObject.FindGameObjectWithTag("Enemy") && !(GameManager.Instance.stage == 9))
+            {
+                if (isMasStage) GameManager.Instance.stage += 1;
+                StartSpawnEnemy();
+            }
+            else if (!GameObject.FindGameObjectWithTag("Enemy") && (GameManager.Instance.stage == 9))
+            {
+                StartSpawnBoss();
+            }
         }
 
         playerDistance = Vector3.Distance(transform.position, GameObject.Find("Player").transform.position);
 
-        if (playerDistance < 10)
+        if (playerDistance < 15)
         {
             transform.Translate(Vector3.right * Time.deltaTime * 3);
         }

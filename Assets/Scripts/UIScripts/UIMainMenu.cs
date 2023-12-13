@@ -19,11 +19,13 @@ public class UIMainMenu : MonoBehaviour
     }
     public void StartGame()
     {
+        GameManager.Instance.bSpawn = true;
         //audioClips.PlayOneShot(clickClip, 1.0f);
         SceneManager.LoadScene(SceneNum);
     }
     public void ExitGame()
     {
+        GameManager.Instance.bSpawn = true;
         audioClips.PlayOneShot(clickClip, 1.0f);
         GameManager.Instance.SaveNewData();
         SceneManager.LoadScene(SceneNum);

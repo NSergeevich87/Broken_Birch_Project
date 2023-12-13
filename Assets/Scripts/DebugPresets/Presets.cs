@@ -95,7 +95,7 @@ public class Presets : MonoBehaviour
         string inputCoefficientUp = setEnemiesUpCoefficient.text;
         float.TryParse(inputCoefficientUp, out GameManager.Instance.CoefficientOfUpStats);
         string inputGoldUpFromEnemy = setGoldUpFromEnemies.text;
-        int.TryParse(inputGoldUpFromEnemy, out GameManager.Instance.EnemyGoldUp);
+        float.TryParse(inputGoldUpFromEnemy, out GameManager.Instance.EnemyGoldUp);
     }
 
     public void SavePlayerStatsUp()

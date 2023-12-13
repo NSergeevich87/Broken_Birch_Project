@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     //Если босс умер увеличиваем характеристики врагам
     public bool isShouldUpStats = false;
     public float CoefficientOfUpStats = 1.5f;
-    public int EnemyGoldUp = 2;
+    public float EnemyGoldUp = 2;
 
     //Стоимость апгрейда
     public float priceHp = 100;
@@ -53,6 +53,9 @@ public class GameManager : MonoBehaviour
     public float PriceAtkUp = 5;
     public float PriceAspdUp = 5;
 
+    //Разрешен ли спавн
+    public bool bSpawn;
+
     //Click counter
     public int hpClick = 0;
     public int atkClick = 0;
@@ -60,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-
+        bSpawn = true;
         //Screen.SetResolution(768, 1366, false);
 
         audioClips = GetComponent<AudioSource>();
@@ -126,7 +129,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(enemyMaxHealth + " " + enemyATK + " " + enemyASPD + " " + enemyMoy);
+        //Debug.Log(enemyMaxHealth + " " + enemyATK + " " + enemyASPD + " " + enemyMoy);
     }
 
     [System.Serializable]
