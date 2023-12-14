@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
 
     void LateUpdate()
     {
+        healthBar.SetMaxHealth(maxHealth);
         //Рывок вперед если босс убит
         /*if (GameManager.Instance.isBossDead == true)
         {
@@ -94,13 +95,13 @@ public class Player : MonoBehaviour
             distance = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Enemy").transform.position);
         }
 
-        if (!isPlayerDead && distance > 8 || !GameObject.FindGameObjectWithTag("Enemy") && !isPlayerDead)
+        if (!isPlayerDead && distance > 7 || !GameObject.FindGameObjectWithTag("Enemy") && !isPlayerDead)
         {
             PlayerMove();
         }
 
         //StartCoroutine(Wait(aspd));
-        if (distance <= 8 && GameObject.FindGameObjectWithTag("Enemy"))
+        if (distance <= 7 && GameObject.FindGameObjectWithTag("Enemy"))
         {
             timeElapsed += Time.deltaTime;
             if (timeElapsed >= aspd)

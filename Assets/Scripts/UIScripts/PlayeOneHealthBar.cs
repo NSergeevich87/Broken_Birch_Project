@@ -22,6 +22,7 @@ public class PlayeOneHealthBar : MonoBehaviour
 
     void Update()
     {
+        //_MaxHealth = GameManager.Instance.playerHp;
         HealthChange(_MaxHealth, _ActualHealth);
     }
 
