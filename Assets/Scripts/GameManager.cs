@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
 
     //Если босс умер увеличиваем характеристики врагам
     public bool isShouldUpStats = false;
-    public float CoefficientOfUpStats = 1.5f;
-    public float EnemyGoldUp = 2;
+    public float CoefficientOfUpStats = 2.0f;
+    public float EnemyGoldUp = 1.02f;
 
     //Стоимость апгрейда
     public float priceHp = 100;
@@ -47,11 +47,11 @@ public class GameManager : MonoBehaviour
     public float priceAspd = 100;
 
     //Коэффициент удорожания в %
-    public float HpUp = 5;
+    public float HpUp = 2.5f;
     public float PriceHpUp = 5;
-    public float AtkUp = 5;
+    public float AtkUp = 2.5f;
     public float PriceAtkUp = 5;
-    public float PriceAspdUp = 5;
+    public float PriceAspdUp = 50;
 
     //Разрешен ли спавн
     public bool bSpawn;
@@ -76,11 +76,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        BasicHero hero1 = new BasicHero(playerName, 35, 100, 0.6f);
+        //BasicHero hero1 = new BasicHero(playerName, 35, 100, 0.6f);
         LoadData();
         //Debug.Log(playerAtk + " " + playerHp + " " + playerAspd);
 
-        if (playerHp == 0)
+        /*if (playerHp == 0)
         {
             playerAtk = hero1.playerATK;
             playerHp = hero1.playerHP;
@@ -89,31 +89,40 @@ public class GameManager : MonoBehaviour
         if (level == 0)
         {
             level = 1;
-        }
+        }*/
 
 
         //Player variables
         playerHp = 100;
         playerAtk = 35;
-        playerAspd = 0.6f;
+        playerAspd = 1.0f;
 
         gold = 0;
         //level progress
         level = 1;
         stage = 1;
         //Enemy variables
-        enemyMaxHealth = 100;
-        enemyATK = 25;
-        enemyASPD = 0.5f;
-        enemySPD = 0.9f;
-        enemyMoy = 40;
+        enemyMaxHealth = 50;
+        enemyATK = 5;
+        enemyASPD = 1.0f;
+        enemySPD = 0.5f;
+        enemyMoy = 125;
         //Enemy boss variables
-        enemyBossMaxHealth = 2000;
-        bossATK = 40;
-        bossASPD = 0.5f;
-        bossSPD = 1;
-        bossMoy = 250;
-    }
+        enemyBossMaxHealth = 700;
+        bossATK = 20;
+        bossASPD = 1.0f;
+        bossSPD = 0.5f;
+        bossMoy = 1000;
+        //coeff
+        CoefficientOfUpStats = 2.0f;
+        EnemyGoldUp = 1.02f;
+        //upps
+        HpUp = 2.5f;
+        PriceHpUp = 5;
+        AtkUp = 2.5f;
+        PriceAtkUp = 5;
+        PriceAspdUp = 50;
+}
 
     public void EnemyStatsUp()
     {
@@ -129,7 +138,14 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(enemyMaxHealth + " " + enemyATK + " " + enemyASPD + " " + enemyMoy);
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log(enemyMaxHealth + " " + enemyATK + " " + enemyASPD + " " + enemyMoy);
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Debug.Log(enemyBossMaxHealth + " " + bossATK + " " + bossASPD + " " + bossMoy);
+        }
     }
 
     [System.Serializable]

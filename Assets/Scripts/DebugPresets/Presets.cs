@@ -121,33 +121,33 @@ public class Presets : MonoBehaviour
         //Player variables
         GameManager.Instance.playerHp = 100;
         GameManager.Instance.playerAtk = 35;
-        GameManager.Instance.playerAspd = 0.6f;
+        GameManager.Instance.playerAspd = 1.0f;
 
         GameManager.Instance.gold = 0;
         //level progress
         GameManager.Instance.level = 1;
         GameManager.Instance.stage = 0;
         //Enemy variables
-        GameManager.Instance.enemyMaxHealth = 100;
-        GameManager.Instance.enemyATK = 25;
-        GameManager.Instance.enemyASPD = 0.5f;
-        GameManager.Instance.enemySPD = 0.9f;
-        GameManager.Instance.enemyMoy = 40;
+        GameManager.Instance.enemyMaxHealth = 50;
+        GameManager.Instance.enemyATK = 5;
+        GameManager.Instance.enemyASPD = 1.0f;
+        GameManager.Instance.enemySPD = 0.5f;
+        GameManager.Instance.enemyMoy = 125;
         //Enemy boss variables
-        GameManager.Instance.enemyBossMaxHealth = 2000;
-        GameManager.Instance.bossATK = 40;
-        GameManager.Instance.bossASPD = 0.5f;
-        GameManager.Instance.bossSPD = 1;
-        GameManager.Instance.bossMoy = 250;
+        GameManager.Instance.enemyBossMaxHealth = 700;
+        GameManager.Instance.bossATK = 20;
+        GameManager.Instance.bossASPD = 1.0f;
+        GameManager.Instance.bossSPD = 0.5f;
+        GameManager.Instance.bossMoy = 1000;
         //Коэффициент усиливающий противников с каждым уровнем
-        GameManager.Instance.CoefficientOfUpStats = 1.5f;
-        GameManager.Instance.EnemyGoldUp = 2;
+        GameManager.Instance.CoefficientOfUpStats = 2.0f;
+        GameManager.Instance.EnemyGoldUp = 1.02f;
         //Насколько в процентном соотношении от предыдущего числа будут увеличиваться характеристики после каждого нажатия
-        GameManager.Instance.HpUp = 5;
-        GameManager.Instance.AtkUp = 5;
+        GameManager.Instance.HpUp = 2.5f;
+        GameManager.Instance.AtkUp = 2.5f;
         //Насколько в процентном соотношении от предыдущего числа будет увеличиваться цена после каждого нажатия
         GameManager.Instance.PriceHpUp = 5;
         GameManager.Instance.PriceAtkUp = 5;
-        GameManager.Instance.PriceAspdUp = 5;
+        GameManager.Instance.PriceAspdUp = 50;
     }
 }

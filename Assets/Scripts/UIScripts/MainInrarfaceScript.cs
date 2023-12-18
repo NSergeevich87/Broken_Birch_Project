@@ -62,7 +62,7 @@ public class MainInrarfaceScript : MonoBehaviour
         if (GameManager.Instance.gold >= GameManager.Instance.priceAtk)
         {
             //сколько прибавить
-            GameManager.Instance.playerAtk += GameManager.Instance.playerAtk * (GameManager.Instance.AtkUp / 100);
+            GameManager.Instance.playerAtk += (GameManager.Instance.playerAtk * (GameManager.Instance.AtkUp / 100));
             GameManager.Instance.gold -= GameManager.Instance.priceAtk;
             //увеличиваем стоимость
             GameManager.Instance.priceAtk += GameManager.Instance.priceAtk * (GameManager.Instance.PriceAtkUp / 100);

@@ -36,7 +36,7 @@ public class EnemyBoss : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(enemyBossMaxHealth + " " + bossATK + " " + bossMoy);
+        //Debug.Log(enemyBossMaxHealth + " " + bossATK + " " + bossMoy);
 
         distance = Vector3.Distance(player.transform.position, transform.position); //distance <= 3.1
 

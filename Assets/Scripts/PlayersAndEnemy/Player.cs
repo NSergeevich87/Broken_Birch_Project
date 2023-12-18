@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             enemyCounter++;
-            Debug.Log(enemyCounter);
+            //Debug.Log(enemyCounter);
         }
     }
 }
