@@ -56,11 +56,87 @@ public class SpawnManager : MonoBehaviour
             GameManager.Instance.isShouldUpStats = false;
         }
 
-        for (int i = 0; i < GameManager.Instance.stage; i++)
+        /*for (int i = 0; i < GameManager.Instance.stage; i++)
         {
             float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
             Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
             Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
+        }*/
+
+        switch (GameManager.Instance.stage) 
+        {
+            case 1:
+                for (int i = 0; i < 1; i++)
+                {
+                    float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+                    Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
+                    Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
+                }
+                break;
+            case 2:
+                for (int i = 0; i < 2; i++)
+                {
+                    float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+                    Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
+                    Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
+                }
+                break; 
+            case 3:
+                for (int i = 0; i < 3; i++)
+                {
+                    float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+                    Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
+                    Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
+                }
+                break;
+            case 4:
+                for (int i = 0; i < 3; i++)
+                {
+                    float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+                    Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
+                    Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
+                }
+                break;
+            case 5:
+                for (int i = 0; i < 3; i++)
+                {
+                    float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+                    Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
+                    Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
+                }
+                break;
+            case 6:
+                for (int i = 0; i < 3; i++)
+                {
+                    float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+                    Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
+                    Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
+                }
+                break;
+            case 7:
+                for (int i = 0; i < 4; i++)
+                {
+                    float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+                    Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
+                    Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
+                }
+                break;
+            case 8:
+                for (int i = 0; i < 4; i++)
+                {
+                    float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+                    Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
+                    Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
+                }
+                break;
+            case 9:
+                for (int i = 0; i < 5; i++)
+                {
+                    float rndLine = linesSpawn[Random.Range(0, linesSpawn.Length)];
+                    Vector3 spawnPlace = new Vector3(transform.position.x + Random.Range(0, 4), rndLine, transform.position.z);
+                    Instantiate(enemySpawn[0], spawnPlace, enemySpawn[0].transform.rotation);
+                }
+                break;
         }
     }
 
