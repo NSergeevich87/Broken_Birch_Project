@@ -7,6 +7,9 @@ public class EnemyBoss : MonoBehaviour
     public ParticleSystem particleBossAttack;
     public UIHealthBar healthBar;
 
+    private AudioSource audioSource;
+    public AudioClip AttackSound;
+
     private float enemyBossMaxHealth;
     [SerializeField] private float enemyCurrentHealth;
 
@@ -18,6 +21,8 @@ public class EnemyBoss : MonoBehaviour
     private float distance; //расстояние между игроком и врагом
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         enemyBossMaxHealth = GameManager.Instance.enemyBossMaxHealth;
         bossATK = GameManager.Instance.bossATK;
         bossASPD = GameManager.Instance.bossASPD;
@@ -34,7 +39,7 @@ public class EnemyBoss : MonoBehaviour
         healthBar.gameObject.SetActive(true);
     }
 
-    void Update()
+    void LateUpdate()
     {
         //Debug.Log(enemyBossMaxHealth + " " + bossATK + " " + bossMoy);
 
@@ -42,14 +47,19 @@ public class EnemyBoss : MonoBehaviour
 
         if (enemyCurrentHealth <= 0)
         {
-            GameManager.Instance.PlayClip();
+            //GameManager.Instance.PlayClip();
 
-            Destroy(gameObject);
+            
             GameManager.Instance.gold += bossMoy;
             GameManager.Instance.level += 1;
             GameManager.Instance.stage = 0;
             GameManager.Instance.isShouldUpStats = true;
             GameManager.Instance.isBoss = false;
+
+            GameManager.Instance.PlaySoundEnemyDeath();
+            GameManager.Instance.PlaySoundCoinsTakeBoss();
+
+            Destroy(gameObject);
         }
         if (distance > 1.5)
         {
@@ -58,7 +68,6 @@ public class EnemyBoss : MonoBehaviour
             transform.localPosition = pos;
         }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bomb"))
@@ -80,6 +89,7 @@ public class EnemyBoss : MonoBehaviour
             particleBossAttack.Play();
             if (player.currentHealth > 0)
             {
+                audioSource.PlayOneShot(AttackSound, 1.0f);
                 player.currentHealth -= bossATK;
             }
             else

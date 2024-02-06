@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,7 +8,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private int SceneNum;
 
     private AudioSource audioClips;
-    public AudioClip clickClip;
+    public AudioClip[] clickClip;
 
     private void Start()
     {
@@ -15,7 +16,8 @@ public class UIMainMenu : MonoBehaviour
     }
     public void PlaySound()
     {
-        audioClips.PlayOneShot(clickClip, 1.0f);
+        int Num = UnityEngine.Random.Range(0, 2);
+        audioClips.PlayOneShot(clickClip[Num], 1.0f);
     }
     public void StartGame()
     {
@@ -26,13 +28,15 @@ public class UIMainMenu : MonoBehaviour
     public void ExitGame()
     {
         GameManager.Instance.bSpawn = true;
-        audioClips.PlayOneShot(clickClip, 1.0f);
+        int Num = UnityEngine.Random.Range(0, 2);
+        audioClips.PlayOneShot(clickClip[Num], 1.0f);
         GameManager.Instance.SaveNewData();
         SceneManager.LoadScene(SceneNum);
     }
     public void ExitApplication()
     {
-        audioClips.PlayOneShot(clickClip, 1.0f);
+        int Num = UnityEngine.Random.Range(0, 2);
+        audioClips.PlayOneShot(clickClip[Num], 1.0f);
         GameManager.Instance.SaveNewData();
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();

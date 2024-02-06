@@ -8,7 +8,8 @@ using System;
 public class MainInrarfaceScript : MonoBehaviour
 {
     private AudioSource audioClips;
-    public AudioClip clickClip;
+    public AudioClip[] clickClip;
+    public AudioClip Coins_Spend;
 
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI attackText;
@@ -47,7 +48,8 @@ public class MainInrarfaceScript : MonoBehaviour
     }
     public void BackToMainMenu()
     {
-        audioClips.PlayOneShot(clickClip, 1.0f);
+        int Num = UnityEngine.Random.Range(0, 2);
+        audioClips.PlayOneShot(clickClip[Num], 1.0f);
         GameManager.Instance.SaveNewData();
         SceneManager.LoadScene(0);
     }
@@ -58,12 +60,14 @@ public class MainInrarfaceScript : MonoBehaviour
         //увеличиваем счетчик
         GameManager.Instance.atkClick++;
 
-        audioClips.PlayOneShot(clickClip, 1.0f);
+        int Num = UnityEngine.Random.Range(0, 2);
+        audioClips.PlayOneShot(clickClip[Num], 1.0f);
         if (GameManager.Instance.gold >= GameManager.Instance.priceAtk)
         {
             //сколько прибавить
             GameManager.Instance.playerAtk += (GameManager.Instance.playerAtk * (GameManager.Instance.AtkUp / 100));
             GameManager.Instance.gold -= GameManager.Instance.priceAtk;
+            audioClips.PlayOneShot(Coins_Spend, 1.0f);
             //увеличиваем стоимость
             GameManager.Instance.priceAtk += GameManager.Instance.priceAtk * (GameManager.Instance.PriceAtkUp / 100);
         }
@@ -72,11 +76,13 @@ public class MainInrarfaceScript : MonoBehaviour
     {
         GameManager.Instance.hpClick++;
 
-        audioClips.PlayOneShot(clickClip, 1.0f);
+        int Num = UnityEngine.Random.Range(0, 2);
+        audioClips.PlayOneShot(clickClip[Num], 1.0f);
         if (GameManager.Instance.gold >= GameManager.Instance.priceHp)
         {
             GameManager.Instance.playerHp += GameManager.Instance.playerHp * (GameManager.Instance.HpUp / 100);
             GameManager.Instance.gold -= GameManager.Instance.priceHp;
+            audioClips.PlayOneShot(Coins_Spend, 1.0f);
             GameManager.Instance.priceHp += GameManager.Instance.priceHp * (GameManager.Instance.PriceHpUp / 100);
         }
     }
@@ -84,16 +90,19 @@ public class MainInrarfaceScript : MonoBehaviour
     {
         GameManager.Instance.aspdClick++;
 
-        audioClips.PlayOneShot(clickClip, 1.0f);
+        int Num = UnityEngine.Random.Range(0, 2);
+        audioClips.PlayOneShot(clickClip[Num], 1.0f);
         if (GameManager.Instance.gold >= GameManager.Instance.priceAspd)
         {
             GameManager.Instance.playerAspd -= (GameManager.Instance.playerAspd / 100);
             GameManager.Instance.gold -= GameManager.Instance.priceAspd;
+            audioClips.PlayOneShot(Coins_Spend, 1.0f);
             GameManager.Instance.priceAspd += GameManager.Instance.priceAspd * (GameManager.Instance.PriceAspdUp / 100);
         }
     }
     public void PlaySound()
     {
-        audioClips.PlayOneShot(clickClip, 1.0f);
+        int Num = UnityEngine.Random.Range(0, 2);
+        audioClips.PlayOneShot(clickClip[Num], 1.0f);
     }
 }

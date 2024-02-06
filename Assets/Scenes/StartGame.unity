@@ -325,7 +325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNum: 0
-  clickClip: {fileID: 0}
+  clickClip:
+  - {fileID: 0}
 --- !u!95 &16339037
 Animator:
   serializedVersion: 5
@@ -4303,7 +4304,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2e51d001ea40c8043a0e48e556b262c4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8f0eced093fee904cb2f69f383f2eaa5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
@@ -6172,7 +6173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNum: 0
-  clickClip: {fileID: 0}
+  clickClip:
+  - {fileID: 0}
 --- !u!1 &755383849
 GameObject:
   m_ObjectHideFlags: 0
@@ -6673,7 +6675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b53e564069aa9e4c963715aa0fca0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipCoins: {fileID: 0}
+  Enemy_Kill: {fileID: 8300000, guid: 64dfc4498ce2c1b4880cfbffd4cb755a, type: 3}
+  Coins_Take: {fileID: 8300000, guid: 0178f134c6b396142b166e3a76cdc73e, type: 3}
   parallaxMove: 0
   isBoss: 0
   playerHp: 0
@@ -7798,7 +7801,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df74701a73c9cc489ab1ec536677a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickClip: {fileID: 8300000, guid: 9dcf3d9ca23976c4786256fd51073bfe, type: 3}
+  clickClip:
+  - {fileID: 8300000, guid: a84e62ba0634f5841aca2ab535cf7ef2, type: 3}
+  - {fileID: 8300000, guid: 66c8afac1d1c4fe49a03829309b4957d, type: 3}
+  - {fileID: 8300000, guid: 3f30b29ef6d2a5d4a89f93095f7e7b4c, type: 3}
+  Coins_Spend: {fileID: 8300000, guid: 69e39046c0c69304692120a49bf49de6, type: 3}
   goldText: {fileID: 71951225}
   attackText: {fileID: 538884370}
   hpText: {fileID: 92317511}
@@ -7999,7 +8006,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNum: 0
-  clickClip: {fileID: 8300000, guid: 9dcf3d9ca23976c4786256fd51073bfe, type: 3}
+  clickClip:
+  - {fileID: 8300000, guid: a84e62ba0634f5841aca2ab535cf7ef2, type: 3}
+  - {fileID: 8300000, guid: 66c8afac1d1c4fe49a03829309b4957d, type: 3}
+  - {fileID: 8300000, guid: 3f30b29ef6d2a5d4a89f93095f7e7b4c, type: 3}
 --- !u!1 &1031318461
 GameObject:
   m_ObjectHideFlags: 3
@@ -8790,7 +8800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1236661666}
-  magicSpell: {fileID: 8300000, guid: f62b7f53b191bc747945bbed15cdc7c4, type: 3}
+  magicSpell: {fileID: 8300000, guid: ee1e5d3766f262942ab96f44dc608ca6, type: 3}
   healthBar: {fileID: 254836032}
   currentHealth: 0
   bomb: {fileID: 8495568747232707739, guid: 1428daf3d0b5e7b478757348def5dbe1, type: 3}
@@ -8875,7 +8885,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

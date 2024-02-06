@@ -3,11 +3,15 @@ using TMPro;
 using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+
 
 public class GameManager : MonoBehaviour
 {
     private AudioSource audioClips;
-    public AudioClip clipCoins;
+    public AudioClip Enemy_Kill;
+    public AudioClip Coins_Take;
+
     public static GameManager Instance { get; set; }
     //Ниже описываем переменные данные которых будем сохранять
     public bool parallaxMove;
@@ -191,8 +195,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayClip()
+    public void PlaySoundEnemyDeath()
     {
-        audioClips.PlayOneShot(clipCoins, 1.0f);
+        audioClips.PlayOneShot(Enemy_Kill, 1.0f);
+    }
+
+    public void PlaySoundCoinsTake()
+    {
+        StartCoroutine(WaitSomeTime(0.65f, false));
+    }
+
+    public void PlaySoundCoinsTakeBoss()
+    {
+        StartCoroutine(WaitSomeTime(0.65f, true));
+    }
+
+    IEnumerator WaitSomeTime(float time, bool bBoss)
+    {
+        yield return new WaitForSeconds(time);
+        if (!bBoss)
+        {
+            audioClips.PlayOneShot(Coins_Take, 1.0f);
+            gold += enemyMoy;
+        }
+        else
+        {
+            audioClips.PlayOneShot(Coins_Take, 1.0f);
+            gold += bossMoy;
+        }
     }
 }

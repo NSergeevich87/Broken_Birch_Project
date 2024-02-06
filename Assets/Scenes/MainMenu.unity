@@ -287,7 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b53e564069aa9e4c963715aa0fca0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipCoins: {fileID: 8300000, guid: 258240dbd6957ab4b82ad7fe478304e9, type: 3}
+  Enemy_Kill: {fileID: 8300000, guid: 64dfc4498ce2c1b4880cfbffd4cb755a, type: 3}
+  Coins_Take: {fileID: 8300000, guid: 0178f134c6b396142b166e3a76cdc73e, type: 3}
   parallaxMove: 0
   isBoss: 0
   playerHp: 0
@@ -317,6 +318,7 @@ MonoBehaviour:
   AtkUp: 2
   PriceAtkUp: 5
   PriceAspdUp: 5
+  bSpawn: 0
   hpClick: 0
   atkClick: 0
   aspdClick: 0
@@ -1135,7 +1137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNum: 1
-  clickClip: {fileID: 8300000, guid: 9dcf3d9ca23976c4786256fd51073bfe, type: 3}
+  clickClip:
+  - {fileID: 8300000, guid: a84e62ba0634f5841aca2ab535cf7ef2, type: 3}
+  - {fileID: 8300000, guid: 66c8afac1d1c4fe49a03829309b4957d, type: 3}
+  - {fileID: 8300000, guid: 3f30b29ef6d2a5d4a89f93095f7e7b4c, type: 3}
 --- !u!114 &77479324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2325,7 +2330,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNum: 1
-  clickClip: {fileID: 0}
+  clickClip:
+  - {fileID: 8300000, guid: a84e62ba0634f5841aca2ab535cf7ef2, type: 3}
+  - {fileID: 8300000, guid: 66c8afac1d1c4fe49a03829309b4957d, type: 3}
+  - {fileID: 8300000, guid: 3f30b29ef6d2a5d4a89f93095f7e7b4c, type: 3}
 --- !u!95 &138123844
 Animator:
   serializedVersion: 5

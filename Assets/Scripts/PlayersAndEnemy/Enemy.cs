@@ -5,6 +5,9 @@ public class Enemy : MonoBehaviour
     private Player player;
     private SpawnManager spawnManager;
 
+    private AudioSource AudioClips;
+    public AudioClip AttackSound;
+
     public UIHealthBar healthBar;
     private float enemyMaxHealth;
     public float enemyCurrentHealth;
@@ -21,6 +24,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        AudioClips = GetComponent<AudioSource>();
+
         enemyMaxHealth = GameManager.Instance.enemyMaxHealth;
         enemyATK = GameManager.Instance.enemyATK;
         enemyASPD = GameManager.Instance.enemyASPD;
@@ -40,7 +45,7 @@ public class Enemy : MonoBehaviour
         healthBar.SetMaxHealth(enemyMaxHealth);
         healthBar.gameObject.SetActive(true);
     }
-    void Update()
+    void LateUpdate()
     {
         //linePos = transform.position.y;
         spawnDistance = Vector3.Distance(spawnManager.transform.position, transform.position);
@@ -513,9 +518,11 @@ public class Enemy : MonoBehaviour
 
         if (enemyCurrentHealth <= 0 || spawnDistance > 20)
         {
-            GameManager.Instance.PlayClip();
+            //GameManager.Instance.PlayClip();
 
-            GameManager.Instance.gold += enemyMoy;
+            //GameManager.Instance.gold += enemyMoy;
+            GameManager.Instance.PlaySoundEnemyDeath();
+            GameManager.Instance.PlaySoundCoinsTake();
             Destroy(gameObject);
         }
 
@@ -546,6 +553,7 @@ public class Enemy : MonoBehaviour
         {
             if (player.currentHealth > 0)
             {
+                AudioClips.PlayOneShot(AttackSound, 1.0f);
                 player.currentHealth -= enemyATK;
             }
             else
