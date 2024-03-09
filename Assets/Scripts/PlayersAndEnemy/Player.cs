@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     public AudioClip magicSpell;
 
     //public UIHealthBar healthBar;
-    public PlayeOneHealthBar healthBar;
+    //public PlayeOneHealthBar healthBar;
+    public PlayerOneHealthCircle healthBar;
     private float maxHealth;
     public float currentHealth;
 
